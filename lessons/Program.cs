@@ -211,4 +211,91 @@ if (person >= 165)
     }
 }
 
+
+
+****************************** 10 task
+
+
+
+int a =10, b = 5, c =3;
+
+if (a > b && a > c)
+{
+    Console.WriteLine(a);
+} else if (b > a && b > c)
+{
+    Console.WriteLine(b);
+} else
+{
+    Console.WriteLine(c);
+}
+
+
+
+
+******************************* 11 task
+
+
+
+int x = Convert.ToInt32(Console.ReadLine()), y = Convert.ToInt32(Console.ReadLine());
+
+if (x > 0 && y > 0)
+{
+    Console.WriteLine("first quadrant");
+} else if (x < 0 && y > 0)
+{
+    Console.WriteLine("second quadrant");
+} else if (x < 0 && y < 0)
+{
+    Console.WriteLine("third quadrant");
+} else if (x > 0 && y < 0)
+{
+    Console.WriteLine("fourth quadrant");
+} else if (x == 0 && y == 0)
+{
+    Console.WriteLine("origin");
+} else if (x == 0 && y != 0)
+{
+    Console.WriteLine("y-axis");
+} else if (x != 0 && y == 0)
+{
+    Console.WriteLine("x-axis");
+} else
+{
+    Console.WriteLine("invalid input");
+}
+
+
+
+
+
+**************************** 12 task
+
+
+int math = 65;
+int phy = 60;
+int chem = 60;
+
+int total = 0;
+
+if (math >= 65)
+{
+    total += math;
+} 
+if (phy >= 55)
+{
+    total += phy;
+}
+if (chem >= 50)
+{
+    total += chem;
+}
+
+    if (total >= 180)
+{
+    Console.WriteLine($"totally is {total}. Congrats! You passed.");
+} else
+{
+    Console.WriteLine("Your balls not enough it should be greater or equal to 180");
+}
 */
