@@ -8,6 +8,7 @@ int number2 = 2;
 
 if (number1 == number2)
 {
+
     Console.WriteLine($"{number1} and {number2} is equal");
 } else
 {
@@ -243,7 +244,7 @@ if (x > 0 && y > 0)
 {
     Console.WriteLine("first quadrant");
 } else if (x < 0 && y > 0)
-{
+{s
     Console.WriteLine("second quadrant");
 } else if (x < 0 && y < 0)
 {
@@ -297,5 +298,86 @@ if (chem >= 50)
 } else
 {
     Console.WriteLine("Your balls not enough it should be greater or equal to 180");
+}
+
+
+
+
+
+****************************** 13 task
+
+
+int celsius = -15;
+int fahrenheit;
+
+fahrenheit = (celsius * 9 / 5) + 32;
+Console.WriteLine(fahrenheit);
+
+
+
+
+
+
+**************************** 14 task
+
+
+int a,b;
+Console.WriteLine("Welcome!");
+Console.WriteLine("Enter number for A:");
+a = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter number for B:");
+b = Convert.ToInt32(Console.ReadLine());
+
+int chose;
+
+Console.WriteLine("select what you need:");
+Console.WriteLine("(1) for addition");
+Console.WriteLine("(2) for subtraction");
+Console.WriteLine("(3) for multiplication");
+Console.WriteLine("(4) for devision");
+
+chose = Convert.ToInt32(Console.ReadLine());
+
+if (chose == 1)
+{
+    Console.WriteLine($"\n{a} + {b} = {a + b}");
+} else if (chose == 2)
+{
+    Console.WriteLine($"\n{a} - {b} = {a - b}");
+} else if (chose == 3)
+{
+    Console.WriteLine($"\n{a} * {b} = {a * b}");
+} else if (chose == 4)
+{
+    Console.WriteLine($"\n{a} / {b} = {a / b}");
+} else
+{
+    Console.WriteLine("invalid input");
+}
+
+
+
+
+*************************** 15 task
+
+
+
+string character = "a";
+
+string vowel = "aouie";
+string consonant = "bcdfghjklmnpqrstvwxyz";
+
+for (int i = 0; i < vowel.Length; i++)
+{
+    if (character.Contains(vowel[i]))
+    {
+        Console.WriteLine($"charcacter is vowel");
+    }
+}
+for (int i = 0; i < consonant.Length; i++)
+{
+    if (character.Contains(consonant[i])) { 
+        Console.WriteLine($"charcacter is consonant");
+    }
 }
 */
