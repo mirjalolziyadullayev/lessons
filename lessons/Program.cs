@@ -362,6 +362,7 @@ if (chose == 1)
 
 
 
+
 string character = "a";
 
 string vowel = "aouie";
@@ -380,4 +381,60 @@ for (int i = 0; i < consonant.Length; i++)
         Console.WriteLine($"charcacter is consonant");
     }
 }
+
 */
+
+using System.ComponentModel.DataAnnotations;
+
+int A = 0, B = 0;
+
+
+int[] number = new int [] {0,1,2,3,4,5,6,7,8,9,10};
+int[] used = new int[] {};
+
+var found = true;
+var notUsed = false;
+
+for (int i = 0; i < 10; i++)
+{
+    Console.WriteLine("Enter for A");
+    A = Convert.ToInt32(Console.ReadLine());
+
+    for (int j = 0; j < number.Length; j++)
+    {
+        if (A == number[j])
+        {
+            for (int k = 0; k < used.Length; k++)
+            {
+                if (A != 0) 
+                {
+
+                    if (A != used[k])
+                    {
+                        used = used.Append(A).ToArray();
+                        number[j] = 0;
+                        notUsed = true;
+                        break;
+                    } else
+                    {
+                        Console.WriteLine($"A's value is used {used[i]}");
+                    }
+                }
+            }
+            if (!notUsed)
+            {
+                Console.WriteLine("Already used");
+            }
+            found = true; 
+            break;
+        }
+    } 
+    if (!found)
+    {
+        Console.WriteLine("not found");
+    }
+    Console.WriteLine("[{0}]", string.Join(", ", number));
+    Console.WriteLine("[{0}]", string.Join(", ", used));
+}
+
+
