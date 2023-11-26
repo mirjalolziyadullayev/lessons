@@ -382,7 +382,6 @@ for (int i = 0; i < consonant.Length; i++)
     }
 }
 
-*/
 
 int A = 0, B = 0;
 
@@ -460,4 +459,55 @@ while (looping == true)
     }
 }
 
+
+
+
+
+
+
+
+
+*********************************************
+
+
+
+
+
+int rows = 5;
+
+for (var i = 1; i <= rows; i++)
+{
+    for (var j = 1; j <= rows-i; j++)
+    {
+        Console.Write(" ");
+    }
+    for (var k = 1; k <= 2*i-1; k++)
+    {
+        Console.Write(k);
+    }
+    Console.WriteLine();
+}    
+
+
+*/
+
+
+
+
+
+
+
+int number = 9;
+int total = 0;
+
+for (int i = 1; i <= 6; i++)
+{
+    total += number;
+    number = number * 10 + 9;
+    Console.WriteLine(number);
+
+
+}
+
+Console.WriteLine(total);
 
