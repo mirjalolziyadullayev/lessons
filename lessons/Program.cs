@@ -384,57 +384,80 @@ for (int i = 0; i < consonant.Length; i++)
 
 */
 
-using System.ComponentModel.DataAnnotations;
-
 int A = 0, B = 0;
 
 
-int[] number = new int [] {0,1,2,3,4,5,6,7,8,9,10};
-int[] used = new int[] {};
+int[] numberForA = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+int[] numberForB = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-var found = true;
-var notUsed = false;
+var looping = true;
 
-for (int i = 0; i < 10; i++)
+int Acounter = 0;
+int Bcounter = 0;
+
+while (looping == true)
 {
-    Console.WriteLine("Enter for A");
+    Console.WriteLine("enter number for A");
     A = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("enter number for B");
+    B = Convert.ToInt32(Console.ReadLine());
 
-    for (int j = 0; j < number.Length; j++)
+    if (A == B)
     {
-        if (A == number[j])
-        {
-            for (int k = 0; k < used.Length; k++)
-            {
-                if (A != 0) 
-                {
+        Console.WriteLine("both of them the same shit");
+        continue;
+    }
 
-                    if (A != used[k])
-                    {
-                        used = used.Append(A).ToArray();
-                        number[j] = 0;
-                        notUsed = true;
-                        break;
-                    } else
-                    {
-                        Console.WriteLine($"A's value is used {used[i]}");
-                    }
+    for (int indexofA = 0; indexofA < numberForA.Length; indexofA++)
+    {
+        if (A == numberForA[indexofA])
+        {
+            numberForA[indexofA] = -1;
+            for (int c = 0; c < numberForA.Length; c++)
+            {
+                if (numberForA[c] == -1)
+                {
+                    Acounter++;
+                    break;
                 }
             }
-            if (!notUsed)
-            {
-                Console.WriteLine("Already used");
-            }
-            found = true; 
-            break;
         }
-    } 
-    if (!found)
-    {
-        Console.WriteLine("not found");
     }
-    Console.WriteLine("[{0}]", string.Join(", ", number));
-    Console.WriteLine("[{0}]", string.Join(", ", used));
+
+    for (int indexofB = 0; indexofB < numberForB.Length; indexofB++)
+    {
+        if (B == numberForB[indexofB])
+        {
+            numberForB[indexofB] = -1;
+            for (int x = 0; x < numberForB.Length; x++)
+            {
+                if (numberForB[x] == -1)
+                {
+                    Bcounter++;
+                    break;
+                }
+            }
+        }
+    }
+    
+    Console.WriteLine("[{0}]", string.Join(" , ", numberForA));
+    Console.WriteLine("[{0}]", string.Join(" , ", numberForB));
+
+    if (Acounter == numberForA.Length)
+    {
+        Console.WriteLine("A is winner");
+        looping = false;
+    }
+    else if (Bcounter == numberForB.Length)
+    {
+        Console.WriteLine("B is winner");
+        looping = false;
+    }
+    else if (Acounter == numberForA.Length && Bcounter == numberForB.Length)
+    {
+        Console.WriteLine("both of them is winner");
+        looping = false;
+    }
 }
 
 
