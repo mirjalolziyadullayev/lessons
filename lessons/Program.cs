@@ -489,12 +489,11 @@ for (var i = 1; i <= rows; i++)
 }    
 
 
-*/
 
 
 
 
-
+**************************************
 
 
 int number = 9;
@@ -510,4 +509,7 @@ for (int i = 1; i <= 6; i++)
 }
 
 Console.WriteLine(total);
+
+*/
+
 
