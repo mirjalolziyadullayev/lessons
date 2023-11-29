@@ -383,6 +383,15 @@ for (int i = 0; i < consonant.Length; i++)
 }
 
 
+
+
+
+*************************************************
+
+
+
+
+
 int A = 0, B = 0;
 
 
@@ -511,5 +520,122 @@ for (int i = 1; i <= 6; i++)
 Console.WriteLine(total);
 
 */
+
+int age = 1;
+char get = '1';
+
+Console.WriteLine(get.GetType().BaseType.BaseType);
+Console.WriteLine(age.GetType());
+
+object nimadir = false;
+
+Console.WriteLine(nimadir.GetType().BaseType);
+
+
+var val = Math.PI;
+Console.WriteLine(val);
+
+var min = Math.Min(10,11);
+Console.WriteLine(min);
+
+var max = Math.Max(10,11);
+Console.WriteLine(max);
+
+Console.WriteLine(Math.Floor(1.99999999));
+Console.WriteLine(Math.Ceiling(1.000000001));
+Console.WriteLine(Math.Round(1.5));
+Console.WriteLine(Math.Round(1.4));
+Console.WriteLine(Math.Pow(2,10));
+Console.WriteLine(Math.Sqrt(81));
+Console.WriteLine(Math.Truncate(199.99999999999999999999999999));
+
+// boxing 
+int value = 1;
+
+object valll = value;
+Console.WriteLine(valll.GetType());
+
+// unboxing
+int val2 = (int)valll;
+Console.WriteLine(val2.GetType());
+
+
+var day = 1;
+
+
+// old switch syntax
+switch (day)
+{
+    case 1:
+        Console.WriteLine("Monday");
+        break;
+    case 2:
+        Console.WriteLine("Tuesday"); 
+        break;
+    case 3: 
+        Console.WriteLine("Wednesday");
+        break;
+    case 4:
+        Console.WriteLine("Thursday");
+        break;
+    case 5:
+        Console.WriteLine("Friday");
+        break;
+    case 6:
+        Console.WriteLine("Saturday");
+        break;
+    case 7:
+        Console.WriteLine("Sunday");
+        break;
+    default:
+        Console.WriteLine("invalid input");
+        break;
+}
+
+
+
+
+var dowhile = 0;
+// do while loop
+do
+{
+    Console.WriteLine(dowhile);
+    dowhile++;
+
+} while (dowhile < 10);
+
+// while loop
+while (dowhile < 20)
+{
+    Console.WriteLine(dowhile);
+    dowhile++;
+}
+
+
+
+int[] toplam =  { 50, 2, 3, 4, 5, 60 };
+
+foreach (var t in toplam)
+{
+    if (t == 2)
+    {
+        continue;
+    }
+    if (t == 5)
+    {
+        break;
+    }
+
+    Console.WriteLine(t);
+}
+initial:
+Console.WriteLine("enter you age");
+var agee = int.Parse(Console.ReadLine());
+
+if (agee < 18) 
+{
+    Console.WriteLine("only 18+");
+    goto initial;
+}
 
 
