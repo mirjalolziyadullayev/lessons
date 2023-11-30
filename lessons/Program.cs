@@ -521,6 +521,8 @@ Console.WriteLine(total);
 
 */
 
+using lessons;
+
 int age = 1;
 char get = '1';
 
@@ -637,5 +639,49 @@ if (agee < 18)
     Console.WriteLine("only 18+");
     goto initial;
 }
+
+
+
+
+
+
+
+
+
+
+display(multiplication(2,6));
+
+static void display(int res)
+{
+    Console.WriteLine(res);
+}
+
+static int multiplication(int x, int y)
+{
+    var sum = x * y;
+    return sum;
+}
+
+
+
+// OOP - Object Oriented Programming
+
+
+// object
+
+Car BMW = new Car("BMW", "B1", 4000);
+
+
+displayCar(BMW);
+
+static void displayCar(Car car)
+{
+    Console.WriteLine($"Cars Brand is {car.Brand}");
+    Console.WriteLine($"Cars Model is {car.Model}");
+    Console.WriteLine($"Cars Year is {car.Year}");
+    Console.WriteLine($"Cars Price is {car.Price}");
+}
+
+
 
 
