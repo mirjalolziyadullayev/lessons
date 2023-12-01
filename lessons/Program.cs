@@ -630,6 +630,7 @@ foreach (var t in toplam)
 
     Console.WriteLine(t);
 }
+
 initial:
 Console.WriteLine("enter you age");
 var agee = int.Parse(Console.ReadLine());
@@ -639,6 +640,8 @@ if (agee < 18)
     Console.WriteLine("only 18+");
     goto initial;
 }
+
+
 
 
 

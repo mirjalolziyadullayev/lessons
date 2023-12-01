@@ -22,3 +22,6 @@ namespace lessons
         public int Price;
     }
 }
+
+
+
