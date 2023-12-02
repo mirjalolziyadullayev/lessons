@@ -669,7 +669,6 @@ static int multiplication(int x, int y)
 
 // OOP - Object Oriented Programming
 
-
 // object
 
 Car BMW = new Car("BMW", "B1", 4000);
