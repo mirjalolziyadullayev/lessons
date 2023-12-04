@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace lessons
+﻿namespace lessons
 {
     // public Car class
     public class Car
     {
-    // constructor
-        public Car(string brand, string model, int price) {
+        // constructor
+        public Car(string brand, string model, int price)
+        {
             Brand = brand;
             Model = model;
             Price = price;
