@@ -1,4 +1,4 @@
-﻿namespace OOP.encapsulation
+﻿namespace OOPencapsulation.encapsulation
 {
     internal class Bank
     {
@@ -10,4 +10,5 @@
         // Encapsulation
         public decimal AccessBalance { get { return balance; } set { balance = value; } }
     }
+
 }

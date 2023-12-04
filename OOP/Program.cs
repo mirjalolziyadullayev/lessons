@@ -1,4 +1,4 @@
-﻿using OOP.encapsulation;
+﻿using OOPencapsulation.encapsulation;
 // created object from bank class
 Bank XalqBanki = new Bank();
 
