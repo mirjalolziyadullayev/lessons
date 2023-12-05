@@ -17,6 +17,8 @@ while (loop == true)
     Console.Write("Enter your choice: ");
     string choice = (Console.ReadLine());
 
+    Console.Clear();
+
     switch (choice)
     {
         case "1":
