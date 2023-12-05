@@ -14,16 +14,15 @@ while (loop == true)
     Console.WriteLine("3. Update product.");
     Console.WriteLine("4. Delete product.\n");
     Console.WriteLine("5. Exit program.\n");
-    int choice = 0;
     Console.Write("Enter your choice: ");
-    choice = int.Parse(Console.ReadLine());
+    string choice = (Console.ReadLine());
 
     switch (choice)
     {
-        case 1:
+        case "1":
             GetAllProducts();
             break;
-        case 2:
+        case "2":
             Console.WriteLine("|-----Create Product----|\n");
             Console.Write("Enter product's Name: ");
             string name1 = Console.ReadLine();
@@ -33,7 +32,7 @@ while (loop == true)
 
             CreateProduct(name1, description1);
             break;
-        case 3:
+        case "3":
             Console.WriteLine("|-----Update Product----|\n");
             Console.Write("Enter product's ID: ");
             int id1 = int.Parse(Console.ReadLine());
@@ -45,7 +44,7 @@ while (loop == true)
 
             UpdateProduct(id1 ,name2, description2);
             break;
-        case 4:
+        case "4":
             Console.WriteLine("|-----Delete Product----|\n");
             Console.Write("Enter product's ID: ");
             int id2 = int.Parse(Console.ReadLine());
@@ -53,7 +52,7 @@ while (loop == true)
 
             DeleteProduct(id2);
             break;
-        case 5:
+        case "5":
             Console.WriteLine("Exit program...\n");
             loop = false;
             break;
@@ -105,6 +104,7 @@ void GetAllProducts()
 }
 void DeleteProduct(int id)
 {
+    bool found = false;
     foreach (var product in products)
     {
         if (product.Id == id)
@@ -113,19 +113,21 @@ void DeleteProduct(int id)
             Console.WriteLine($"Product with ID {product.Id} removed");
             Console.WriteLine("-------------------------------------------------\n");
             products.Remove(product);
+            found = true;
             break;
         }
-        else
-        {
-            Console.WriteLine("------------------Delete Product-----------------\n");
-            Console.WriteLine("no product with such an ID");
-            Console.WriteLine("-------------------------------------------------\n");
-            return;
-        }
+    }
+    if (!found)
+    {
+        Console.WriteLine("------------------Delete Product-----------------\n");
+        Console.WriteLine("no product with such an ID");
+        Console.WriteLine("-------------------------------------------------\n");
+        return;
     }
 }
 void UpdateProduct(int id, string name, string description)
 {
+    bool found = false;
     foreach (var product in products)
     {
         if (product.Id == id)
@@ -141,13 +143,15 @@ void UpdateProduct(int id, string name, string description)
             Console.WriteLine("------------------Update Product-----------------\n");
             Console.WriteLine($"Product with ID {product.Id} updated");
             Console.WriteLine("-------------------------------------------------\n");
+            found = true;
             break;
-        } else
-        {
-            Console.WriteLine("------------------Update Product-----------------\n");
-            Console.WriteLine("no product with such an ID");
-            Console.WriteLine("-------------------------------------------------\n");
-            return;
         }
+    }
+    if (!found)
+    {
+        Console.WriteLine("------------------Update Product-----------------\n");
+        Console.WriteLine("no product with such an ID");
+        Console.WriteLine("-------------------------------------------------\n");
+        return;
     }
 }
