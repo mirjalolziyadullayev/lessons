@@ -7,16 +7,21 @@ bool loop = true;
 while (loop == true)
 {
     Console.WriteLine("--------------------------------");
+    Console.BackgroundColor = ConsoleColor.DarkBlue;
     Console.WriteLine("Product Inventory program.");
+    Console.ResetColor();
     Console.WriteLine("--------------------------------\n");
     Console.WriteLine("1. Get list of products.");
     Console.WriteLine("2. Create new Product.");
     Console.WriteLine("3. Update product.");
     Console.WriteLine("4. Delete product.\n");
     Console.WriteLine("5. Exit program.\n");
+    Console.BackgroundColor = ConsoleColor.DarkMagenta;
     Console.Write("Enter your choice: ");
-    string choice = (Console.ReadLine());
+    Console.ResetColor();
 
+    string choice = (Console.ReadLine());
+    
     Console.Clear();
 
     switch (choice)
@@ -25,7 +30,9 @@ while (loop == true)
             GetAllProducts();
             break;
         case "2":
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("|-----Create Product----|\n");
+            Console.ResetColor();
             Console.Write("Enter product's Name: ");
             string name1 = Console.ReadLine();
             Console.Write("Enter product's Description: ");
@@ -35,7 +42,9 @@ while (loop == true)
             CreateProduct(name1, description1);
             break;
         case "3":
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("|-----Update Product----|\n");
+            Console.ResetColor();
             Console.Write("Enter product's ID: ");
             int id1 = int.Parse(Console.ReadLine());
             Console.Write("Enter product's Name: ");
@@ -47,7 +56,9 @@ while (loop == true)
             UpdateProduct(id1 ,name2, description2);
             break;
         case "4":
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("|-----Delete Product----|\n");
+            Console.ResetColor();
             Console.Write("Enter product's ID: ");
             int id2 = int.Parse(Console.ReadLine());
             Console.WriteLine("-------------------------\n");
@@ -55,11 +66,15 @@ while (loop == true)
             DeleteProduct(id2);
             break;
         case "5":
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("Exit program...\n");
+            Console.ResetColor();
             loop = false;
             break;
-        default: 
+        default:
+            Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("Invalid input.");
+            Console.ResetColor();
             continue;
     }
 }
@@ -85,7 +100,7 @@ void GetAllProducts()
     if (products.Count==0)
     {
         Console.WriteLine($"-----------------------------GetAllProducts------------------------------\n");
-        Console.WriteLine("No product's here, you shold create them");
+        Console.WriteLine("No product's here, you should create them");
         Console.WriteLine("--------------------------------------------------------------------------\n");
         return;
     }
@@ -102,7 +117,6 @@ void GetAllProducts()
         }
         Console.WriteLine("--------------------------------------------------------------------------\n");
     }
-
 }
 void DeleteProduct(int id)
 {
