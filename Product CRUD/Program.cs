@@ -65,6 +65,7 @@ while (loop == true)
             Console.WriteLine("-------------------------\n");
 
             DeleteProduct(id2);
+
             break;
         case "5":
             Console.BackgroundColor = ConsoleColor.DarkGreen;
