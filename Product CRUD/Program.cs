@@ -17,7 +17,7 @@ while (loop == true)
     Console.WriteLine("3. Update product.");
     Console.WriteLine("4. Delete product.\n");
     Console.WriteLine("5. Exit program.\n");
-    Console.BackgroundColor = ConsoleColor.DarkBlue;
+    Console.BackgroundColor = ConsoleColor.DarkYellow;
     Console.Write("Enter your choice: ");
     Console.ResetColor();
 
