@@ -12,17 +12,19 @@ while (loop == true)
     Console.WriteLine("Product Inventory program.");
     Console.ResetColor();
     Console.WriteLine("--------------------------------\n");
-    Console.WriteLine("1. Get list of products.");
+    Console.WriteLine("1. Get list of all products.");
     Console.WriteLine("2. Create new Product.");
     Console.WriteLine("3. Update product.");
-    Console.WriteLine("4. Delete product.\n");
-    Console.WriteLine("5. Exit program.\n");
+    Console.WriteLine("4. Delete product.");
+    Console.WriteLine("5. Search products.\n");
+    Console.WriteLine("6. Exit program.\n");
     Console.BackgroundColor = ConsoleColor.DarkYellow;
     Console.Write("Enter your choice: ");
     Console.ResetColor();
 
     string choice = (Console.ReadLine());
     Console.Clear();
+    var UID = 0;
 
     switch (choice)
     {
@@ -34,82 +36,84 @@ while (loop == true)
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("|-----Create Product----|\n");
             Console.ResetColor();
-            createName:
+        createName:
             Console.Write("Enter product's Name: ");
-            string name1 = Console.ReadLine();
-            if (name1 == "")
+            string createname = Console.ReadLine();
+            if (createname == "")
             {
                 Console.WriteLine("Invalid Input.Press any key to re-enter");
                 goto createName;
             }
-            createDescription:
+        createDescription:
             Console.Write("Enter product's Description: ");
-            string description1 = Console.ReadLine();
-            if (description1 == "")
+            string createdescription = Console.ReadLine();
+            if (createdescription == "")
             {
                 Console.WriteLine("Invalid Input.Press any key to re-enter");
                 goto createDescription;
             }
             Console.WriteLine("-------------------------\n");
 
-            CreateProduct(name1, description1);
+            CreateProduct(createname, createdescription);
 
             break;
         case "3":
-            
-            int id = 0;
-            string name = string.Empty;
-            string description = string.Empty;
+
+            string updatename = string.Empty;
+            string updatedescription = string.Empty;
 
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("|-----Update Product----|\n");
             Console.ResetColor();
-            updateId:
+        updateId:
             Console.Write("Enter product's ID: ");
-            string[] values = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9,", "0" };
+            string[] updatevalues = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9,", "0" };
             var getUpdate = Console.ReadLine();
-            if (getUpdate != "" && (values.Any(getUpdate.Contains)))
+            if (getUpdate != "" && (updatevalues.Any(getUpdate.Contains)))
             {
-                id = int.Parse(getUpdate);
+
+                UID = int.Parse(getUpdate);
             }
             else
             {
                 Console.WriteLine("Invalid Input.Press any key to re-enter");
                 goto updateId;
             }
-            updateName:
+        updateName:
             Console.Write("Enter product's Name: ");
-            name = Console.ReadLine();
-            if (name == "")
+            updatename = Console.ReadLine();
+            if (updatename == "")
             {
                 Console.WriteLine("Invalid Input.Press any key to re-enter");
                 goto updateName;
             }
-            updateDescription:
+        updateDescription:
             Console.Write("Enter product's Description: ");
-            description = Console.ReadLine();
-            if (description == "")
+            updatedescription = Console.ReadLine();
+            if (updatedescription == "")
             {
                 Console.WriteLine("Invalid Input.Press any key to re-enter");
                 goto updateDescription;
             }
+
+            UpdateProduct(UID, updatename, updatedescription);
+
             Console.WriteLine("-------------------------\n");
 
-            UpdateProduct(id ,name, description);
-
             break;
+
         case "4":
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("|-----Delete Product----|\n");
             Console.ResetColor();
-            deleteId:
+        deleteId:
             Console.Write("Enter product's ID: ");
-            string[] values1 = new string[] {"1","2","3","4","5","6","7","8","9,","0"};
+            string[] deletevalues = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9,", "0" };
             var getDelete = Console.ReadLine();
-            if (getDelete != "" && (values1.Any(getDelete.Contains))) 
+            if (getDelete != "" && (deletevalues.Any(getDelete.Contains)))
             {
-                int id2 = int.Parse(getDelete);
-                DeleteProduct(id2);
+                int deleteid = int.Parse(getDelete);
+                DeleteProduct(deleteid);
             }
             else
             {
@@ -119,6 +123,29 @@ while (loop == true)
 
             break;
         case "5":
+            string searchname = string.Empty;
+
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("|-----Search Product----|\n");
+            Console.ResetColor();
+
+        searchName:
+            Console.Write("Enter product's Name: ");
+            searchname = Console.ReadLine();
+            if (searchname == "")
+            {
+                Console.WriteLine("Invalid Input.Press any key to re-enter");
+                goto updateName;
+            }
+            else
+            {
+                SearchProduct(searchname);
+            }
+
+            Console.WriteLine("-------------------------\n");
+
+            break;
+        case "6":
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("Exit program...\n");
             Console.ResetColor();
@@ -139,7 +166,7 @@ while (loop == true)
 
 void GetAllProducts()
 {
-    if (products.Count==0)
+    if (products.Count == 0)
     {
         Console.Clear();
         Console.BackgroundColor = ConsoleColor.DarkGreen;
@@ -168,12 +195,37 @@ void GetAllProducts()
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("-------------------------------------------------\n");
             Console.ResetColor();
-            
+
         }
         Console.BackgroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine("--------------------------------------------------------------------------\n");
         Console.ResetColor();
     }
+}
+void SearchProduct(string name)
+{
+    Console.Clear();
+    Console.BackgroundColor = ConsoleColor.DarkGreen;
+    Console.WriteLine($"--------------------------Search Products---------------------------------\n");
+    Console.ResetColor();
+    foreach (Product product in products)
+    {
+        if (product.Name == name)
+        {
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine($"----------------Match Product {product.Id}----------------\n");
+            Console.ResetColor();
+            Console.WriteLine($"Product's ID: {product.Id}");
+            Console.WriteLine($"Product's Name: {product.Name}");
+            Console.WriteLine($"Product's Description: {product.Description}\n");
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("-------------------------------------------------\n");
+            Console.ResetColor();
+        }
+    }
+    Console.BackgroundColor = ConsoleColor.DarkGreen;
+    Console.WriteLine("--------------------------------------------------------------------------\n");
+    Console.ResetColor();
 }
 void CreateProduct(string name, string description)
 {
