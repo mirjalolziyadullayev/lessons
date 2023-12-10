@@ -1,4 +1,5 @@
 ﻿using Haad_LC.models;
+using Microsoft.VisualBasic;
 
 namespace Haad_LC.@interface
 {
@@ -6,7 +7,7 @@ namespace Haad_LC.@interface
     {
         void Create(Student student);
         bool Delete(int id);
-        bool Update(int id, string firsname, string lastname, Subject subject);
+        bool Update(int id, string firsname, string lastname, Subject subject, DateTime dateofbirth);
         void GetAll();
         List<Student> GetByName(string firstname);
         bool GetById(int id);

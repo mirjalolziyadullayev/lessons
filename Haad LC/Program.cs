@@ -2,7 +2,6 @@
 using Haad_LC.models;
 using Haad_LC.service;
 
-
 IStudentService service = new StudentService();
 
 var loop = true;
@@ -38,7 +37,7 @@ while (loop)
             var clastname = Console.ReadLine();
             CSubject:
             Console.WriteLine("Subjects: (1. Math, 2. DataScience, 3. English, 4. Russian)");
-            Console.WriteLine("enter choice: ");
+            Console.Write("enter choice: ");
 
             var csubjectchoice = Console.ReadLine();
             Subject csubject = new Subject();
@@ -58,15 +57,18 @@ while (loop)
                     csubject = Subject.Russian;
                     break;
                 default:
-                    Console.WriteLine("wrong choice, press any key to enter again.");
+                    Console.Write("wrong choice, press any key to enter again.");
                     Console.ReadKey();
                     goto CSubject;
             }
+            Console.Write("enter date of birth [d/mm/yyyy]: ");
+            var cDateOfBirth = DateTime.Parse(Console.ReadLine());
 
             Student newStudent = new Student();
             newStudent.FirstName = cfirstname;
             newStudent.LastName = clastname;
             newStudent.Subject = csubject;
+            newStudent.DateOfBirth = cDateOfBirth;
 
             service.Create(newStudent);
             Console.WriteLine("--------------------------------");
@@ -79,15 +81,15 @@ while (loop)
             Console.WriteLine("--------------------------------");
 
 
-            Console.WriteLine("enter id");
+            Console.Write("enter id: ");
             var id = int.Parse(Console.ReadLine());
-            Console.WriteLine("enter firstname");
+            Console.Write("enter firstname: ");
             var ufistname = Console.ReadLine();
-            Console.WriteLine("enter lastname");
+            Console.Write("enter lastname: ");
             var ulastname = Console.ReadLine();
             USubject:
             Console.WriteLine("Subjects: (1. Math, 2. DataScience, 3. English, 4. Russian)");
-            Console.WriteLine("enter choice: ");
+            Console.Write("enter choice: ");
 
             var usubjectchoice = Console.ReadLine();
             Subject usubject = new Subject();
@@ -107,12 +109,14 @@ while (loop)
                     usubject = Subject.Russian;
                     break;
                 default:
-                    Console.WriteLine("wrong choice, press any key to enter again.");
+                    Console.Write("wrong choice, press any key to enter again.");
                     Console.ReadKey();
                     goto USubject;
             }
+            Console.Write("enter date of birth [d/mm/yyyy]: ");
+            var uDateOfBirth = DateTime.Parse(Console.ReadLine());
 
-            var uStudentRes = service.Update(id, ufistname, ulastname, usubject);
+            var uStudentRes = service.Update(id, ufistname, ulastname, usubject, uDateOfBirth);
 
             if (uStudentRes == false)
             {
@@ -131,7 +135,7 @@ while (loop)
             Console.WriteLine("--------------------------------");
 
 
-            Console.WriteLine("enter id");
+            Console.Write("enter id: ");
             var dId = int.Parse(Console.ReadLine());
 
             var dIDres = service.Delete(dId);
@@ -163,7 +167,7 @@ while (loop)
             Console.WriteLine("------Get students by ID------");
             Console.WriteLine("--------------------------------");
 
-            Console.WriteLine("enter id");
+            Console.Write("enter id: ");
             var gId = int.Parse(Console.ReadLine());
 
             var gIDRes = service.GetById(gId);
@@ -183,7 +187,7 @@ while (loop)
             Console.WriteLine("------Get students by Name------");
             Console.WriteLine("--------------------------------");
 
-            Console.WriteLine("enter name");
+            Console.Write("enter name: ");
             var gName = Console.ReadLine();
 
             List<Student> studentsGotByName = new();
@@ -195,6 +199,7 @@ while (loop)
                 Console.WriteLine("------------------");
                 Console.WriteLine($"Student's firstname: {student.FirstName}");
                 Console.WriteLine($"Student's lastname: {student.LastName}");
+                Console.WriteLine($"Student's date of birth: {student.DateOfBirth}");
                 Console.WriteLine("------------------");
             }
 
@@ -216,6 +221,7 @@ while (loop)
                 Console.WriteLine("------------------");
                 Console.WriteLine($"Student's firstname: {student.FirstName}");
                 Console.WriteLine($"Student's lastname: {student.LastName}");
+                Console.WriteLine($"Student's date of birth: {student.DateOfBirth}");
                 Console.WriteLine("------------------");
             }
 
@@ -225,12 +231,21 @@ while (loop)
         case "8":
             Console.Clear();
             Console.WriteLine("-----------------------------------------------");
-            Console.WriteLine("oops... service is not working for now");
+            Console.WriteLine("------Get Adult Students------");
             Console.WriteLine("-----------------------------------------------");
-            Console.WriteLine("press any key to continue");
-            Console.ReadKey();
-            continue;
-            //service.GetAdults();
+
+            var studentsGotByAge = service.GetAdults();
+
+            foreach (Student student in studentsGotByAge)
+            {
+                Console.WriteLine("------------------");
+                Console.WriteLine($"Student's firstname: {student.FirstName}");
+                Console.WriteLine($"Student's lastname: {student.LastName}");
+                Console.WriteLine($"Student's date of birth: {student.DateOfBirth}");
+                Console.WriteLine("------------------");
+            }
+
+            break;
         case "9":
             Console.Clear();
             Console.WriteLine("-----------------------------------------------");

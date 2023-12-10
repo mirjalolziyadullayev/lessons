@@ -1,5 +1,6 @@
 ﻿using Haad_LC.models;
 using Haad_LC.@interface;
+using Microsoft.VisualBasic;
 
 
 namespace Haad_LC.service
@@ -33,7 +34,7 @@ namespace Haad_LC.service
             }
             return studentFound;
         }
-        public bool Update(int id, string firstname, string lastname, Subject subject)
+        public bool Update(int id, string firstname, string lastname, Subject subject, DateTime dateofbirth)
         {
             var studentFound = false;
             foreach (Student student in students)
@@ -51,7 +52,13 @@ namespace Haad_LC.service
         }
         public List<Student> GetAdults()
         {
-            throw new NotImplementedException();
+            List<Student> list = new();
+
+            foreach (var item in students)
+            {
+
+            }
+            return list;
         }
         public void GetAll()
         {
@@ -61,6 +68,7 @@ namespace Haad_LC.service
                 Console.WriteLine($"Student's ID: {student.Id}");
                 Console.WriteLine($"Student's firstname: {student.FirstName}");
                 Console.WriteLine($"Student's lastname: {student.FirstName}");
+                Console.WriteLine($"Student's date of birth: {student.DateOfBirth}");
                 Console.WriteLine($"-----------------------------");
 
             }
@@ -76,6 +84,7 @@ namespace Haad_LC.service
                     Console.WriteLine("-----------------------------");
                     Console.WriteLine($"Student's firstname: {student.FirstName}");
                     Console.WriteLine($"Student's lastname: {student.FirstName}");
+                    Console.WriteLine($"Student's date of birth: {student.DateOfBirth}");
                     Console.WriteLine("-----------------------------");
                     studentFound = true;
                     break;
