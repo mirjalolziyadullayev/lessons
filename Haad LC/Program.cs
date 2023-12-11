@@ -62,7 +62,7 @@ while (loop)
                     goto CSubject;
             }
             Console.Write("enter date of birth [d/mm/yyyy]: ");
-            var cDateOfBirth = DateTime.Parse(Console.ReadLine());
+            var cDateOfBirth = DateTime.ParseExact(Console.ReadLine());
 
             Student newStudent = new Student();
             newStudent.FirstName = cfirstname;

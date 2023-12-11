@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Product CRUD", "Product CRU
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factory CRUD", "Factory CRUD\Factory CRUD.csproj", "{2253EC35-6E76-4C59-B959-8E6148110A19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Haad LC", "Haad LC\Haad LC.csproj", "{A463D3DD-964B-4F63-9DC5-C8FC7AB207AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Haad LC", "Haad LC\Haad LC.csproj", "{A463D3DD-964B-4F63-9DC5-C8FC7AB207AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank", "Bank\Bank.csproj", "{EBF252EF-94E6-4DD4-9C8F-97AE1BA77B26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{A463D3DD-964B-4F63-9DC5-C8FC7AB207AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A463D3DD-964B-4F63-9DC5-C8FC7AB207AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A463D3DD-964B-4F63-9DC5-C8FC7AB207AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBF252EF-94E6-4DD4-9C8F-97AE1BA77B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBF252EF-94E6-4DD4-9C8F-97AE1BA77B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBF252EF-94E6-4DD4-9C8F-97AE1BA77B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBF252EF-94E6-4DD4-9C8F-97AE1BA77B26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
