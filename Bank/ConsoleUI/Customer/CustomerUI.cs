@@ -15,7 +15,7 @@ public class CustomerUI
 
         Console.Clear();
 
-        Console.WriteLine("------ (Customer Service Menu) Create Suctomer ------\n");
+        Console.WriteLine("------ (Customer Service Menu) Create Customer ------\n");
         Console.Write("Enter your Firstname: ");
         Cfirstname = Console.ReadLine();
 
@@ -44,7 +44,7 @@ public class CustomerUI
 
         Console.Clear();
 
-        Console.WriteLine("------ (Customer Service Menu) Update Suctomer ------\n");
+        Console.WriteLine("------ (Customer Service Menu) Update Customer ------\n");
         Console.Write("Enter your Firstname: ");
         Ufirstname = Console.ReadLine();
 
@@ -67,11 +67,37 @@ public class CustomerUI
     }
     public void toDelete()
     {
+        Console.Clear();
 
+        int Did = 0;
+
+        Console.WriteLine("------ (Customer Service Menu) Delete Customer ------\n");
+        Console.WriteLine(" Enter an ID: ");
+        string stringID = Console.ReadLine();
+        if (stringID != "")
+        {
+            Did = int.Parse(stringID);
+        }
+        var found = customerService.Delete(Did);
+        if (found == false)
+        {
+            Console.WriteLine($"Customer with ID {Did} not found!");
+        }
     }
     public void toGetByID()
     {
+        Console.Clear();
 
+        int Did = 0;
+
+        Console.WriteLine("------ (Customer Service Menu) Get by ID Customer ------\n");
+        Console.WriteLine(" Enter an ID: ");
+        string stringID = Console.ReadLine();
+        if (stringID != "")
+        {
+            id = int.Parse(stringID);
+        }
+        customerService.Delete(Did);
     }
     public void toGetAll()
     {

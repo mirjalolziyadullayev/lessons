@@ -5,19 +5,19 @@ namespace Bank.Services;
 
 public class TransactionService : ITransactionInterface
 {
-    List<Transaction> transactions;
+    List<TransactionModel> transactions;
     public TransactionService()
     {
-        transactions = new List<Transaction>();
+        transactions = new List<TransactionModel>();
     }
-    public void Create(Transaction trasaction)
+    public void Create(TransactionModel trasaction)
     {
         transactions.Add(trasaction);
     }
-    public List<Transaction> GetAllByCardID(int id)
+    public List<TransactionModel> GetAllByCardID(int id)
     {
-        List<Transaction> transactionsByID = new List<Transaction>();
-        foreach (Transaction transaction in transactions)
+        List<TransactionModel> transactionsByID = new List<TransactionModel>();
+        foreach (TransactionModel transaction in transactions)
         {
             if (transaction.CardID == id)
             {
@@ -26,10 +26,10 @@ public class TransactionService : ITransactionInterface
         }
         return transactionsByID;
     }
-    public List<Transaction> GetAllByCustomerID(int id)
+    public List<TransactionModel> GetAllByCustomerID(int id)
     {
-        List<Transaction> transactionsByCustomerID = new List<Transaction>();
-        foreach (Transaction transaction in transactions)
+        List<TransactionModel> transactionsByCustomerID = new List<TransactionModel>();
+        foreach (TransactionModel transaction in transactions)
         {
             if (transaction.CustomerID == id)
             {
@@ -38,10 +38,10 @@ public class TransactionService : ITransactionInterface
         }
         return transactionsByCustomerID;
     }
-    public List<Transaction> GetAllByType(TransactionType transactionType)
+    public List<TransactionModel> GetAllByType(TransactionType transactionType)
     {
-        List<Transaction> transactionsByType = new List<Transaction>();
-        foreach (Transaction transaction in transactions)
+        List<TransactionModel> transactionsByType = new List<TransactionModel>();
+        foreach (TransactionModel transaction in transactions)
         {
             if (transaction.TransactionType == transactionType)
             {
@@ -50,10 +50,10 @@ public class TransactionService : ITransactionInterface
         }
         return transactionsByType;
     }
-    public Transaction GetByID(int id)
+    public TransactionModel GetByID(int id)
     {
-        Transaction Found = null;
-        foreach (Transaction transaction in transactions)
+        TransactionModel Found = null;
+        foreach (TransactionModel transaction in transactions)
         {
             if (transaction.ID == id)
             {
