@@ -90,18 +90,47 @@ public class CustomerUI
 
         int Did = 0;
 
-        Console.WriteLine("------ (Customer Service Menu) Get by ID Customer ------\n");
+        Console.WriteLine("------ (Customer Service Menu) Get Customer by ID ------\n");
         Console.WriteLine(" Enter an ID: ");
         string stringID = Console.ReadLine();
         if (stringID != "")
         {
-            id = int.Parse(stringID);
+            Did = int.Parse(stringID);
         }
-        customerService.Delete(Did);
+        CustomerModel found = customerService.GetByID(Did);
+        if (found != null)
+        {
+            Console.WriteLine($"Customer's Firstname is {found.FirstName}");
+            Console.WriteLine($"Customer's Firstname is {found.FirstName}");
+            Console.WriteLine($"Customer's Phone is {found.Phone}");
+            Console.WriteLine($"Customer's Date of birth is {found.DateOfBirth}");
+        } else
+        {
+            Console.WriteLine($"Customer with ID {Did} not found!");
+        }
     }
     public void toGetAll()
     {
-
+        Console.Clear();
+        Console.WriteLine("------ (Customer Service Menu) Get all Customers ------\n");
+        List<CustomerModel> allCustomers = customerService.GetAll();
+        if (customerService != null)
+        {
+            foreach ( CustomerModel customer in allCustomers )
+            {
+                Console.WriteLine("______________________________________________________");
+                Console.WriteLine($"Customer's ID is {customer.ID}");
+                Console.WriteLine($"Customer's Firstname is {customer.FirstName}");
+                Console.WriteLine($"Customer's Firstname is {customer.FirstName}");
+                Console.WriteLine($"Customer's Phone is {customer.Phone}");
+                Console.WriteLine($"Customer's Date of birth is {customer.DateOfBirth}");
+                Console.WriteLine("______________________________________________________\n");
+            }
+        }
+        else
+        {
+            Console.WriteLine("List of Customers is empty.");
+        }
     }
 }
 
