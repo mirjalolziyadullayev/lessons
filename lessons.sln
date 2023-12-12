@@ -21,11 +21,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factory CRUD", "Factory CRU
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Haad LC", "Haad LC\Haad LC.csproj", "{A463D3DD-964B-4F63-9DC5-C8FC7AB207AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank", "Bank\Bank.csproj", "{EBF252EF-94E6-4DD4-9C8F-97AE1BA77B26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bank", "Bank\Bank.csproj", "{EBF252EF-94E6-4DD4-9C8F-97AE1BA77B26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeetCode Contains Duplicate II", "LeetCode Contains Duplicate II\LeetCode Contains Duplicate II.csproj", "{2FFA3363-F9D5-41A7-8D52-63241847BFB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeetCode Contains Duplicate II", "LeetCode Contains Duplicate II\LeetCode Contains Duplicate II.csproj", "{2FFA3363-F9D5-41A7-8D52-63241847BFB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeetCode Remove Duplicates from Sorted Array", "LeetCode Remove Duplicates from Sorted Array\LeetCode Remove Duplicates from Sorted Array.csproj", "{0F7493B8-5DE3-4D72-A867-6DC06C3B4EB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeetCode Remove Duplicates from Sorted Array", "LeetCode Remove Duplicates from Sorted Array\LeetCode Remove Duplicates from Sorted Array.csproj", "{0F7493B8-5DE3-4D72-A867-6DC06C3B4EB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACMP", "ACMP\ACMP.csproj", "{C67F4645-D265-4F51-AAF0-AA59AF440D3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{0F7493B8-5DE3-4D72-A867-6DC06C3B4EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F7493B8-5DE3-4D72-A867-6DC06C3B4EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F7493B8-5DE3-4D72-A867-6DC06C3B4EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C67F4645-D265-4F51-AAF0-AA59AF440D3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C67F4645-D265-4F51-AAF0-AA59AF440D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C67F4645-D265-4F51-AAF0-AA59AF440D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C67F4645-D265-4F51-AAF0-AA59AF440D3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
