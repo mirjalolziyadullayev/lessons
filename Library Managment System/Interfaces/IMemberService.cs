@@ -9,7 +9,7 @@ public interface IMemberService
     public bool deleteMember(int id);
     public bool updateMember(Member member);
     public bool borrowBook(int bookId, int memberID);
-    public bool returnBook(int bookId);
+    public bool returnBook(int bookId, int memberID);
     public List<Book> displayBorrowedBooksByMemberID(int memberID);
     public List<Book> displayBorrowedBooks();
     public List<Member> getAllMembers();

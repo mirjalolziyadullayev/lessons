@@ -1,5 +1,6 @@
 ﻿using Library_Managment_System.Models;
 using Library_Managment_System.Services;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Library_Managment_System.ConsoleUI.SubMenu;
 
@@ -143,32 +144,121 @@ public class MemberMenu
 
                     break;
                 case "5":
-                displaybookdetails:
-                    int dsiplaybookid = 0;
+                    borrowBook:
+                    int bmemberid = 0;
+                    int bbookid = 0;
+                    List<Book> books = new List<Book>();
+                    books = bookService.getBooks();
 
-                    Console.WriteLine("_____________ LibraryManagment System / Book Service / Display Book Details By ID _____________");
-                    Console.Write(" Enter Book's ID: ");
-                    dbookid = int.Parse(Console.ReadLine());
-                    var displaybook = bookService.displayBookDetails(dsiplaybookid);
-                    if (displaybook != null)
+                    Console.WriteLine("_____________ LibraryManagment System / Member Service / Borrow Book _____________");
+                    Console.Write(" Enter Member's ID: ");
+                    bmemberid = int.Parse(Console.ReadLine());
+                    Console.WriteLine(" All Books: \n");
+
+                    foreach (Book book in books)
                     {
-                        Console.WriteLine(
-                        $"__________________________________________________" +
-                        $" Book's ID: {displaybook.Id},\n" +
-                        $" Book's Name: {displaybook.Title},\n" +
-                        $" Book's Author: {displaybook.Author},\n" +
-                        $" Book's Genre: {displaybook.Genre},\n" +
-                        $" Book's Published Year: {displaybook.PublicationYear},\n" +
-                        $" Book's isBorrowed Status {displaybook.isBorrowed}\n" +
-                        $"__________________________________________________"
-                    );
+                        if (book.isBorrowed != true)
+                        {
+                            Console.WriteLine(
+                                $"__________________________________________________" +
+                                $" Book's ID: {book.Id},\n" +
+                                $" Book's Name: {book.Title},\n" +
+                                $" Book's Author: {book.Author},\n" +
+                                $" Book's Genre: {book.Genre},\n" +
+                                $" Book's Published Year: {book.PublicationYear},\n" +
+                                $" Book's isBorrowed Status {book.isBorrowed}\n" +
+                                $"__________________________________________________"
+                            );
+                        }
+                    }
+                    Console.Write(" You can choose a book among these booklist: ");
+                    Console.Write(" Enter Book's ID: ");
+                    bbookid = int.Parse(Console.ReadLine());
+                    bool Borrowed = memberService.borrowBook(bbookid, bmemberid);
+                    if (Borrowed == false)
+                    {
+                        Console.WriteLine($"Success. Member with ID {bmemberid} borrowed a book with ID {bbookid}");
                     }
                     else
                     {
                         Console.WriteLine("Aaugh, Dumbass. Enter Valid ID again!\n");
                         Console.WriteLine("Press any key to re-enter...");
                         Console.ReadLine();
-                        goto displaybookdetails;
+                        goto borrowBook;
+                    }
+
+                    break;
+                case "6":
+                    returnBook:
+                    int rmemberid = 0;
+                    int rbookid = 0;
+                    List<Book> borrowedbooks = new List<Book>();
+                    borrowedbooks = memberService.displayBorrowedBooks();
+
+                    Console.WriteLine("_____________ LibraryManagment System / Member Service / Return Book _____________");
+                    Console.Write(" Enter Member's ID: ");
+                    rmemberid = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine(" All Borrowed Books: \n");
+
+                    foreach (Book book in borrowedbooks)
+                    {
+                        if (book.borrowedMemberID == rmemberid) 
+                        {
+                            Console.WriteLine(
+                                $"__________________________________________________" +
+                                $" Book's ID: {book.Id},\n" +
+                                $" Book's Name: {book.Title},\n" +
+                                $" Book's Author: {book.Author},\n" +
+                                $" Book's Genre: {book.Genre},\n" +
+                                $" Book's Published Year: {book.PublicationYear},\n" +
+                                $" Book's isBorrowed Status {book.isBorrowed}\n" +
+                                $"__________________________________________________"
+                            );
+                        }
+                    }
+                    Console.Write(" You can choose a which book you want to return: ");
+                    Console.Write(" Enter Book's ID: ");
+                    rbookid = int.Parse(Console.ReadLine());
+                    bool returnned = memberService.returnBook(rbookid, rmemberid);
+                    if (returnned == false)
+                    {
+                        Console.WriteLine($"Success. Member with ID {rmemberid} returned a book with ID {rbookid}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Aaugh, Dumbass. Enter Valid ID again!\n");
+                        Console.WriteLine("Press any key to re-enter...");
+                        Console.ReadLine();
+                        goto returnBook;
+                    }
+                    break;
+                case "7":
+                    int dbmemberid = 0;
+                    List<Book> dborrowedbooks = new List<Book>();
+                    borrowedbooks = memberService.displayBorrowedBooks();
+
+                    Console.WriteLine("_____________ LibraryManagment System / Member Service / Display Member's Books _____________");
+                    Console.Write(" Enter Member's ID: ");
+                    dbmemberid = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine(" All Borrowed Books: \n");
+
+                    foreach (Book book in dborrowedbooks)
+                    {
+                        if (book.borrowedMemberID == dbmemberid)
+                        {
+                            Console.WriteLine(
+                                $"__________________________________________________" +
+                                $" Book's ID: {book.Id},\n" +
+                                $" Book's Name: {book.Title},\n" +
+                                $" Book's Author: {book.Author},\n" +
+                                $" Book's Genre: {book.Genre},\n" +
+                                $" Book's Published Year: {book.PublicationYear},\n" +
+                                $" Book's isBorrowed Status {book.isBorrowed}\n" +
+                                $"__________________________________________________"
+                            );
+                        }
                     }
 
                     break;

@@ -98,16 +98,19 @@ public class MemberService : IMemberService
         members.Add(member);
         return member;
     }
-    public bool returnBook(int bookId)
+    public bool returnBook(int bookId, int memberID)
     {
         bool found = false;
         foreach (Book book in books)
         {
-            if ( book.Id == bookId)
+            if (book.Id == bookId)
             {
-                BorrowedBooks.Remove(book);
-                found = true;
-                break;
+                if (book.borrowedMemberID == memberID)
+                {
+                    BorrowedBooks.Remove(book);
+                    found = true;
+                    break;
+                }
             }
         }
         return found;
