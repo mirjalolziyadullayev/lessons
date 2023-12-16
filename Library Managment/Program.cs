@@ -1,4 +1,4 @@
-﻿using Library_Managment_System.ConsoleUI;
+﻿using Library_Managment.ConsoleUI;
 
 MainMenu mainMenu = new MainMenu();
 mainMenu.Display();

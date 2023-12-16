@@ -1,4 +1,4 @@
-﻿namespace Library_Managment_System.Models;
+﻿namespace Library_Managment.Models;
 
 public class Member
 {

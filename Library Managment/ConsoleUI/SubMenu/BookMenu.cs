@@ -1,8 +1,8 @@
-﻿using Library_Managment_System.Models;
-using Library_Managment_System.Services;
+﻿using Library_Managment.Models;
+using Library_Managment.Services;
 using System.Data;
 
-namespace Library_Managment_System.ConsoleUI.SubMenu;
+namespace Library_Managment.ConsoleUI.SubMenu;
 
 public class BookMenu
 {

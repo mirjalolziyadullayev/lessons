@@ -1,6 +1,6 @@
-﻿using Library_Managment_System.ConsoleUI.SubMenu;
+﻿using Library_Managment.ConsoleUI.SubMenu;
 
-namespace Library_Managment_System.ConsoleUI;
+namespace Library_Managment.ConsoleUI;
 
 public class MainMenu
 {
