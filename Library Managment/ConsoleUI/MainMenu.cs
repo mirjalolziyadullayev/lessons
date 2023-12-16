@@ -4,14 +4,17 @@ namespace Library_Managment.ConsoleUI;
 
 public class MainMenu
 {
+   
     public void Display()
     {
-        BookMenu bookMenu;
-        MemberMenu memberMenu;
+        
 
         bool loop = true;
         while (loop)
         {
+            BookMenu bookMenu;
+            MemberMenu memberMenu;
+
             Console.WriteLine("_____________ Library Managment System _____________");
             Console.WriteLine(" 1. Manage Books");
             Console.WriteLine(" 2. Manage Members");

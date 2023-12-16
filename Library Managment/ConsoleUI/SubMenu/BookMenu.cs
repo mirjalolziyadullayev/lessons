@@ -9,6 +9,7 @@ public class BookMenu
     public void DisplayBook()
     {
         BookService bookService = new BookService();
+        MemberService memberService = new MemberService(bookService);
 
         bool loop = true;
         while (loop)

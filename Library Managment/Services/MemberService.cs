@@ -9,12 +9,8 @@ public class MemberService : IMemberService
     List<Book> books;
     List<Book> BorrowedBooks;
 
-
-    BookService bookService;
-    public MemberService()
+    public MemberService(BookService bookService)
     {
-        bookService = new BookService();
-
         books = bookService.getBooks();
         members = new List<Member>();
         BorrowedBooks = new List<Book>();
@@ -94,7 +90,7 @@ public class MemberService : IMemberService
     }
     public Member registerNewMember(Member member)
     {
-        member.membershipId = members.Last().membershipId + 1;
+        member.membershipId = members.Count + 1;
         members.Add(member);
         return member;
     }
@@ -117,7 +113,15 @@ public class MemberService : IMemberService
     }
     public List<Book> displayBorrowedBooksByMemberID(int memberId)
     {
-        return BorrowedBooks;
+        List<Book> userBooks = new List<Book>();
+        foreach(Book book in BorrowedBooks) 
+        { 
+            if (book.borrowedMemberID == memberId)
+            {
+                userBooks.Add(book);
+            }
+        }
+        return userBooks;
     }
     public List<Book> displayBorrowedBooks() 
     {

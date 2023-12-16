@@ -6,18 +6,13 @@ namespace Library_Managment.Services;
 public class BookService : IBookService
 {
     List<Book> books;
-    List<Book> borrowedBooks;
-
-    MemberService memberService;
     public BookService()
     {
         books = new List<Book>();
-        memberService = new MemberService();
-        borrowedBooks = memberService.displayBorrowedBooks();
     }
     public Book addNewBook(Book book)
     {
-        book.Id = books.Last().Id + 1;
+        book.Id = books.Count + 1;
         books.Add(book);
         return book;
     }
@@ -58,15 +53,6 @@ public class BookService : IBookService
         {
             if (book.Id == id)
             {
-                foreach (var borrowedBook in borrowedBooks) 
-                {
-                    if (borrowedBook.Id == book.Id)
-                    {
-                        book.isBorrowed = true;
-                        book.borrowedMemberID = borrowedBook.borrowedMemberID;
-                        book.isAvailable = false;
-                    }
-                }
                 found = book;
                 break;
             }
@@ -75,18 +61,6 @@ public class BookService : IBookService
     }
     public List<Book> getBooks() 
     {
-        foreach (Book book in books)
-        {
-            foreach (Book borrowed in borrowedBooks)
-            {
-                if (book.Id == borrowed.Id)
-                {
-                    book.isBorrowed= true;
-                    book.borrowedMemberID = borrowed.borrowedMemberID;
-                    book.isAvailable = false;
-                }
-            }
-        }
         return books;
     }
 }
