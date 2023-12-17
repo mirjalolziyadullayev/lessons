@@ -10,13 +10,13 @@ public class BookService : IBookService
     {
         books = new List<Book>();
     }
-    public Book addNewBook(Book book)
+    public Book AddNewBook(Book book)
     {
         book.Id = books.Count + 1;
         books.Add(book);
         return book;
     }
-    public Book updateBook(Book book) 
+    public Book UpdateBook(Book book) 
     {
         Book foundAndUpdated = null;
         foreach (var item in books)
@@ -32,7 +32,7 @@ public class BookService : IBookService
         }
         return foundAndUpdated;
     }
-    public bool deleteBook(int id)
+    public bool DeleteBook(int id)
     {
         var found = false;
         foreach (var book in books)
@@ -46,7 +46,7 @@ public class BookService : IBookService
         }
         return found;
     }
-    public Book displayBookDetails(int id)
+    public Book DisplayBookDetails(int id)
     {
         Book found = null;
         foreach (var book in books)
@@ -59,7 +59,7 @@ public class BookService : IBookService
         }
         return found;
     }
-    public List<Book> getBooks() 
+    public List<Book> GetBooks() 
     {
         return books;
     }

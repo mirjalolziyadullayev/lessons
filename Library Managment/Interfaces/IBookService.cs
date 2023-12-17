@@ -4,10 +4,10 @@ namespace Library_Managment.Interfaces;
 
 public interface IBookService
 {
-    public Book addNewBook(Book book);
-    public Book displayBookDetails(int id);
-    public Book updateBook(Book book);
-    public bool deleteBook(int id);
-    public List<Book> getBooks();
+    public Book AddNewBook(Book book);
+    public Book DisplayBookDetails(int id);
+    public Book UpdateBook(Book book);
+    public bool DeleteBook(int id);
+    public List<Book> GetBooks();
 }
 

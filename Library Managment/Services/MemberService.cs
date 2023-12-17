@@ -5,20 +5,20 @@ namespace Library_Managment.Services;
 
 public class MemberService : IMemberService
 {
-    List<Member> members;
-    List<Book> books;
-    List<Book> BorrowedBooks;
+    private readonly List<Member> members;
+    private readonly List<Book> BorrowedBooks;
+    private readonly BookService bookService;
 
     public MemberService(BookService bookService)
     {
-        books = bookService.getBooks();
+        this.bookService = bookService;
         members = new List<Member>();
         BorrowedBooks = new List<Book>();
     }
     public bool borrowBook(int bookId, int memberID)
     {
         bool found = false;
-        foreach (Book book in books)
+        foreach (Book book in bookService.GetBooks())
         {
             if (book.Id == bookId)
             {
@@ -97,7 +97,7 @@ public class MemberService : IMemberService
     public bool returnBook(int bookId, int memberID)
     {
         bool found = false;
-        foreach (Book book in books)
+        foreach (Book book in bookService.GetBooks())
         {
             if (book.Id == bookId)
             {

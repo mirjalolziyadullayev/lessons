@@ -6,11 +6,19 @@ namespace Library_Managment.ConsoleUI.SubMenu;
 
 public class BookMenu
 {
+    private readonly BookService bookService;
+
+    private readonly MemberService memberService;
+
+    public BookMenu(MemberService memberService, BookService bookService)
+    {
+        this.memberService = memberService;
+        this.bookService = bookService;
+    }
+
+
     public void DisplayBook()
     {
-        BookService bookService = new BookService();
-        MemberService memberService = new MemberService(bookService);
-
         bool loop = true;
         while (loop)
         {
@@ -28,7 +36,7 @@ public class BookMenu
             switch (choise)
             {
                 case "1":
-                    create:
+                create:
                     string cbookname = string.Empty;
                     string cbookauthor = string.Empty;
                     string cbookgenre = string.Empty;
@@ -51,7 +59,7 @@ public class BookMenu
                     cbook.PublicationYear = cbookyear;
                     cbook.Genre = cbookgenre;
 
-                    Book ccreatedBook = bookService.addNewBook(cbook);
+                    Book ccreatedBook = bookService.AddNewBook(cbook);
                     if (ccreatedBook != null)
                     {
                         Console.WriteLine("Success. Book added to library...\n");
@@ -63,7 +71,7 @@ public class BookMenu
                             $" Book's Published Year: {ccreatedBook.PublicationYear},\n" +
                             $" Book's isBorrowed Status {ccreatedBook.isBorrowed}\n"
                         );
-                    } 
+                    }
                     else
                     {
                         Console.WriteLine("Aaugh, Dumbass. Enter Valid ID again!\n");
@@ -75,7 +83,7 @@ public class BookMenu
 
                     break;
                 case "2":
-                    update:
+                update:
                     int ubookid = 0;
                     string ubookname = string.Empty;
                     string ubookauthor = string.Empty;
@@ -101,7 +109,7 @@ public class BookMenu
                     ubook.PublicationYear = ubookyear;
                     ubook.Genre = ubookgenre;
 
-                    Book uupdateBook = bookService.updateBook(ubook);
+                    Book uupdateBook = bookService.UpdateBook(ubook);
                     if (uupdateBook != null)
                     {
                         Console.WriteLine("Success. Book updated...\n");
@@ -113,7 +121,7 @@ public class BookMenu
                             $" Book's Published Year: {uupdateBook.PublicationYear},\n" +
                             $" Book's isBorrowed Status {uupdateBook.isBorrowed}\n"
                         );
-                    } 
+                    }
                     else
                     {
                         Console.WriteLine("Aaugh, Dumbass. Enter Valid ID again!\n");
@@ -124,14 +132,14 @@ public class BookMenu
 
                     break;
                 case "3":
-                    delete:
+                delete:
                     int dbookid = 0;
 
                     Console.WriteLine("_____________ LibraryManagment System / Book Service / Delete _____________");
                     Console.Write(" Enter Book's ID: ");
                     ubookid = int.Parse(Console.ReadLine());
 
-                    bool ddeletebook = bookService.deleteBook(dbookid);
+                    bool ddeletebook = bookService.DeleteBook(dbookid);
                     if (ddeletebook != false)
                     {
                         Console.WriteLine("Success. Book deleted...\n");
@@ -147,32 +155,32 @@ public class BookMenu
                     break;
                 case "4":
                     List<Book> bookslist = new List<Book>();
-                    bookslist = bookService.getBooks();
+                    bookslist = bookService.GetBooks();
 
                     Console.WriteLine("_____________ LibraryManagment System / Book Service / Get All _____________");
                     foreach (Book book in bookslist)
                     {
                         Console.WriteLine(
-                            $"__________________________________________________"+
+                            $"__________________________________________________" +
                             $" Book's ID: {book.Id},\n" +
                             $" Book's Name: {book.Title},\n" +
                             $" Book's Author: {book.Author},\n" +
                             $" Book's Genre: {book.Genre},\n" +
                             $" Book's Published Year: {book.PublicationYear},\n" +
                             $" Book's isBorrowed Status {book.isBorrowed}\n" +
-                            $"__________________________________________________" 
+                            $"__________________________________________________"
                         );
                     }
 
                     break;
                 case "5":
-                    displaybookdetails:
+                displaybookdetails:
                     int dsiplaybookid = 0;
 
                     Console.WriteLine("_____________ LibraryManagment System / Book Service / Display Book Details By ID _____________");
                     Console.Write(" Enter Book's ID: ");
                     dbookid = int.Parse(Console.ReadLine());
-                    var displaybook = bookService.displayBookDetails(dsiplaybookid);
+                    var displaybook = bookService.DisplayBookDetails(dsiplaybookid);
                     if (displaybook != null)
                     {
                         Console.WriteLine(
@@ -193,7 +201,7 @@ public class BookMenu
                         Console.ReadLine();
                         goto displaybookdetails;
                     }
-                    
+
                     break;
                 case "6":
                     loop = false;

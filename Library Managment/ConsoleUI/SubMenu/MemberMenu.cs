@@ -6,10 +6,15 @@ namespace Library_Managment.ConsoleUI.SubMenu;
 
 public class MemberMenu
 {
+    private readonly BookService bookService;
+    private readonly MemberService memberService;
+    public MemberMenu(BookService bookService, MemberService memberService)
+    {
+        this.bookService = bookService;
+        this.memberService = memberService;
+    }
     public void DisplayMember()
     {
-        BookService bookService = new BookService();
-        MemberService memberService = new MemberService(bookService);
 
         bool loop = true;
         while (loop)
@@ -39,7 +44,7 @@ public class MemberMenu
                     Console.Write(" Enter Member's name/full name: ");
                     cmembername = Console.ReadLine();
                     Console.Write(" Enter Member's phone/email: ");
-                    cmemberphoneoremail= Console.ReadLine();
+                    cmemberphoneoremail = Console.ReadLine();
 
                     Member member = new Member();
                     member.name = cmembername;
@@ -127,7 +132,7 @@ public class MemberMenu
                     break;
                 case "4":
                     List<Book> bookslist = new List<Book>();
-                    bookslist = bookService.getBooks();
+                    bookslist = bookService.GetBooks();
 
                     Console.WriteLine("_____________ LibraryManagment System / Member Service / Get All _____________");
                     List<Member> memberlist = memberService.getAllMembers();
@@ -144,11 +149,11 @@ public class MemberMenu
 
                     break;
                 case "5":
-                    borrowBook:
+                borrowBook:
                     int bmemberid = 0;
                     int bbookid = 0;
                     List<Book> books = new List<Book>();
-                    books = bookService.getBooks();
+                    books = bookService.GetBooks();
 
                     Console.WriteLine("_____________ LibraryManagment System / Member Service / Borrow Book _____________");
                     Console.Write(" Enter Member's ID: ");
@@ -189,7 +194,7 @@ public class MemberMenu
 
                     break;
                 case "6":
-                    returnBook:
+                returnBook:
                     int rmemberid = 0;
                     int rbookid = 0;
                     List<Book> borrowedbooks = new List<Book>();
@@ -203,7 +208,7 @@ public class MemberMenu
 
                     foreach (Book book in borrowedbooks)
                     {
-                        if (book.borrowedMemberID == rmemberid) 
+                        if (book.borrowedMemberID == rmemberid)
                         {
                             Console.WriteLine(
                                 $"__________________________________________________" +

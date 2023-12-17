@@ -1,19 +1,28 @@
 ﻿using Library_Managment.ConsoleUI.SubMenu;
+using Library_Managment.Services;
 
 namespace Library_Managment.ConsoleUI;
 
 public class MainMenu
 {
-   
+    private readonly BookMenu bookMenu;
+    private readonly MemberMenu memberMenu;
+    public readonly BookService bookService;
+    private readonly MemberService memberService;
+    public MainMenu()
+    {
+        this.memberService = new MemberService(bookService);
+        this.bookService = new BookService();
+        this.memberMenu = new MemberMenu(bookService, memberService);
+        this.bookMenu = new BookMenu(memberService, bookService);
+    }
+
     public void Display()
     {
-        
-
         bool loop = true;
         while (loop)
         {
-            BookMenu bookMenu;
-            MemberMenu memberMenu;
+
 
             Console.WriteLine("_____________ Library Managment System _____________");
             Console.WriteLine(" 1. Manage Books");
@@ -26,11 +35,9 @@ public class MainMenu
             switch (choise)
             {
                 case "1":
-                    bookMenu = new BookMenu();
                     bookMenu.DisplayBook();
                     break;
                 case "2":
-                    memberMenu = new MemberMenu();
                     memberMenu.DisplayMember();
                     break;
                 case "3":
