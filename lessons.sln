@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeetCode Remove Duplicates 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACMP", "ACMP\ACMP.csproj", "{C67F4645-D265-4F51-AAF0-AA59AF440D3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library Managment", "Library Managment\Library Managment.csproj", "{4B865268-B18A-4E8E-AAFA-0A76BE05C0DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library Managment", "Library Managment\Library Managment.csproj", "{4B865268-B18A-4E8E-AAFA-0A76BE05C0DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cspace", "Cspace\Cspace.csproj", "{3DA6FF19-5B50-42B6-866D-4ABC428DC056}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{4B865268-B18A-4E8E-AAFA-0A76BE05C0DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B865268-B18A-4E8E-AAFA-0A76BE05C0DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B865268-B18A-4E8E-AAFA-0A76BE05C0DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DA6FF19-5B50-42B6-866D-4ABC428DC056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DA6FF19-5B50-42B6-866D-4ABC428DC056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DA6FF19-5B50-42B6-866D-4ABC428DC056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DA6FF19-5B50-42B6-866D-4ABC428DC056}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
