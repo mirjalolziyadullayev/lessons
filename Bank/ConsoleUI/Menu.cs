@@ -7,10 +7,10 @@ public class Menu
         EmployeeMenu employeeMenu = new EmployeeMenu();
         CustomerMenu customerMenu = new CustomerMenu();
         CardMenu cardMenu = new CardMenu();
-        TransactionMenu transactionMenu = new TransactionMenu(); 
+        TransactionMenu transactionMenu = new TransactionMenu();
 
         bool loop = true;
-        while (loop) 
+        while (loop)
         {
             Console.Clear();
 
@@ -23,7 +23,7 @@ public class Menu
 
             Console.Write("Enter your choise: ");
             string choise = Console.ReadLine();
-            switch (choise) 
+            switch (choise)
             {
                 case "1":
                     Console.Clear();
@@ -43,7 +43,7 @@ public class Menu
                 case "4":
                     Console.Clear();
                     transactionMenu.TransactionDisplay();
-                    
+
                     break;
                 case "5":
                     Console.Clear();

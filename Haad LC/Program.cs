@@ -17,8 +17,8 @@ while (loop)
     Console.WriteLine("7. get english learners");
     Console.WriteLine("8. get adult students\n");
     Console.WriteLine("9. exit");
-    var choice = Console.ReadLine(); 
-    
+    var choice = Console.ReadLine();
+
     Console.Clear();
 
 
@@ -35,7 +35,7 @@ while (loop)
             var cfirstname = Console.ReadLine();
             Console.Write("enter lastname: ");
             var clastname = Console.ReadLine();
-            CSubject:
+        CSubject:
             Console.WriteLine("Subjects: (1. Math, 2. DataScience, 3. English, 4. Russian)");
             Console.Write("enter choice: ");
 
@@ -86,7 +86,7 @@ while (loop)
             var ufistname = Console.ReadLine();
             Console.Write("enter lastname: ");
             var ulastname = Console.ReadLine();
-            USubject:
+        USubject:
             Console.WriteLine("Subjects: (1. Math, 2. DataScience, 3. English, 4. Russian)");
             Console.Write("enter choice: ");
 
@@ -213,7 +213,7 @@ while (loop)
             Console.WriteLine("--------------------------------");
 
             List<Student> EnglishLearners = new();
-            EnglishLearners =  service.GetEnglishLearners();
+            EnglishLearners = service.GetEnglishLearners();
 
             foreach (Student student in EnglishLearners)
             {

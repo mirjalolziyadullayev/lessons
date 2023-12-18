@@ -50,7 +50,7 @@ public class FeatureService : IFeatureInterface
                 break;
             }
         }
-        if (foundFeature == null) 
+        if (foundFeature == null)
         {
             throw new Exception("This Feature is not found");
         }

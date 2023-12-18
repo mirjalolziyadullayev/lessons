@@ -15,7 +15,7 @@ public class CustomerService : ICustomerService
     // service
     public void Create(CustomerModel customer)
     {
-        customer.ID = customerList.Last().ID+1;
+        customer.ID = customerList.Last().ID + 1;
         customerList.Add(customer);
     }
     public bool Delete(int id)

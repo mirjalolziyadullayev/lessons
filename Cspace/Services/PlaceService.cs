@@ -40,6 +40,19 @@ public class PlaceService : IPlaceService
         return _places;
     }
 
+    public List<Place> GetAvailablePlaces()
+    {
+        List<Place> result = new List<Place>();
+        foreach (var place in _places)
+        {
+            if (place.IsAvailable == true)
+            {
+                result.Add(place);
+            }
+        }
+        return result;
+    }
+
     public Place GetByID(int id)
     {
         Place foundPlace = null;

@@ -87,8 +87,8 @@ public class CardService : ICardService
         foreach (CardModel item in cards)
         {
             if (item.ID == card.ID)
-            {   
-                if (card.ExpireDate !=  DateTime.MinValue)
+            {
+                if (card.ExpireDate != DateTime.MinValue)
                 {
                     item.ExpireDate = card.ExpireDate;
                 }
@@ -100,16 +100,16 @@ public class CardService : ICardService
                 {
                     item.CustomerID = card.CustomerID;
                 }
-                if (item.Balance != 0) 
-                { 
-                    item.Balance = card.Balance; 
+                if (item.Balance != 0)
+                {
+                    item.Balance = card.Balance;
                 }
                 if (item.CardType != CardType.None)
                 {
                     item.CardType = card.CardType;
                 }
                 foundCard = true;
-                break; 
+                break;
             }
         }
         return foundCard;

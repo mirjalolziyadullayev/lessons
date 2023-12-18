@@ -6,5 +6,5 @@ Bank XalqBanki = new Bank();
 XalqBanki.AccessBalance = 2000;
 
 // gotten value of balance from Bank class using the way encapsulation
-Console.WriteLine(XalqBanki.AccessBalance); 
+Console.WriteLine(XalqBanki.AccessBalance);
 

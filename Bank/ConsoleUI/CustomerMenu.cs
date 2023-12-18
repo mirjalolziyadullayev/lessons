@@ -9,7 +9,7 @@ public class CustomerMenu
         CustomerUI customerUI = new CustomerUI();
 
         bool loop = true;
-        while (loop) 
+        while (loop)
         {
             Console.Clear();
 

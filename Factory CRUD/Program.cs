@@ -29,7 +29,7 @@ while (loop)
             break;
         case "2":
             Console.WriteLine("Create Product");
-            Console.WriteLine("What product is it?:"); 
+            Console.WriteLine("What product is it?:");
             string pname = Console.ReadLine();
             Console.WriteLine("Enter details about this product:");
             string pdetails = Console.ReadLine();

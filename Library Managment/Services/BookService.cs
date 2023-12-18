@@ -16,7 +16,7 @@ public class BookService : IBookService
         books.Add(book);
         return book;
     }
-    public Book UpdateBook(Book book) 
+    public Book UpdateBook(Book book)
     {
         Book foundAndUpdated = null;
         foreach (var item in books)
@@ -59,7 +59,7 @@ public class BookService : IBookService
         }
         return found;
     }
-    public List<Book> GetBooks() 
+    public List<Book> GetBooks()
     {
         return books;
     }

@@ -5,7 +5,7 @@ public class CardModel
 
     public CardModel()
     {
-        
+
     }
     public int ID { get; set; }
     public int CustomerID { get; set; }

@@ -12,8 +12,9 @@ getAllProducts();
 Console.WriteLine(Products.Length);
 
 void getAllProducts()
-{ 
-    foreach (Product foreachproduct in Products) { 
+{
+    foreach (Product foreachproduct in Products)
+    {
 
         Console.WriteLine("_____________________Product____________________");
         Console.WriteLine($"Product's name is: {foreachproduct.Name}");
@@ -26,15 +27,16 @@ void getAllProducts()
 void addProduct(string name, string description, decimal price)
 {
 
-Product product = new Product();
-product.Name = name;
-product.Description = description;
-product.Price = price;
+    Product product = new Product();
+    product.Name = name;
+    product.Description = description;
+    product.Price = price;
 
 
     for (int i = 0; i < Products.Length; i++)
     {
-        if (Products[i] == null) {
+        if (Products[i] == null)
+        {
             Products[i] = product;
             break;
         }

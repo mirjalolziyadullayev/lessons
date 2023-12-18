@@ -1,6 +1,5 @@
 ﻿using Library_Managment.Models;
 using Library_Managment.Services;
-using System.Data;
 
 namespace Library_Managment.ConsoleUI.SubMenu;
 

@@ -14,6 +14,13 @@ public class UserService : IUserService
 
     public User Create(User user)
     {
+        foreach (var item in _users)
+        {
+            if (item.Phone == user.Phone)
+            {
+                throw new Exception("This User is already exists");
+            }
+        }
         user.Id = _users.LastOrDefault().Id + 1;
         _users.Add(user);
         return user;
@@ -48,9 +55,9 @@ public class UserService : IUserService
             {
                 foundUser = item;
                 break;
-            } 
+            }
         }
-        if (foundUser == null) 
+        if (foundUser == null)
         {
             throw new Exception("This User is not found");
         }

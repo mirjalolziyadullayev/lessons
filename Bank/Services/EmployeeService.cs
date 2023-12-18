@@ -46,7 +46,7 @@ public class EmployeeService : IEmployeeService
     public EmployeeModel GetByPassportNumber(string passportNumber)
     {
         EmployeeModel found = null;
-        foreach(EmployeeModel emp in employees)
+        foreach (EmployeeModel emp in employees)
         {
             if (emp.PassportNumber == passportNumber)
             {
@@ -70,7 +70,7 @@ public class EmployeeService : IEmployeeService
     public bool Update(EmployeeModel employee)
     {
         bool found = false;
-        foreach(EmployeeModel emp in employees)
+        foreach (EmployeeModel emp in employees)
         {
             if (emp.ID == employee.ID)
             {

@@ -1,7 +1,5 @@
-﻿using Bank.ConsoleUI.Customer;
-using Bank.Interfaces;
+﻿using Bank.Interfaces;
 using Bank.Models;
-using System.Security.Cryptography;
 
 namespace Bank.ConsoleUI.Employee
 {
@@ -135,7 +133,7 @@ namespace Bank.ConsoleUI.Employee
             List<EmployeeModel> EmployeeList = new List<EmployeeModel>();
             EmployeeList = EmployeeService.GetAll();
 
-            foreach ( EmployeeModel emp in EmployeeList )
+            foreach (EmployeeModel emp in EmployeeList)
             {
                 Console.WriteLine("______________________________________________________");
                 Console.WriteLine($"Employee's ID is {emp.ID}");
@@ -153,7 +151,7 @@ namespace Bank.ConsoleUI.Employee
             EmployeeModel found = new EmployeeModel();
 
             found = EmployeeService.GetByID(GiD);
-            if(found == null)
+            if (found == null)
             {
                 Console.WriteLine($"Employee with ID {GiD} not found!");
             }

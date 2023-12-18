@@ -537,17 +537,17 @@ Console.WriteLine(nimadir.GetType().BaseType);
 var val = Math.PI;
 Console.WriteLine(val);
 
-var min = Math.Min(10,11);
+var min = Math.Min(10, 11);
 Console.WriteLine(min);
 
-var max = Math.Max(10,11);
+var max = Math.Max(10, 11);
 Console.WriteLine(max);
 
 Console.WriteLine(Math.Floor(1.99999999));
 Console.WriteLine(Math.Ceiling(1.000000001));
 Console.WriteLine(Math.Round(1.5));
 Console.WriteLine(Math.Round(1.4));
-Console.WriteLine(Math.Pow(2,10));
+Console.WriteLine(Math.Pow(2, 10));
 Console.WriteLine(Math.Sqrt(81));
 Console.WriteLine(Math.Truncate(199.99999999999999999999999999));
 
@@ -572,9 +572,9 @@ switch (day)
         Console.WriteLine("Monday");
         break;
     case 2:
-        Console.WriteLine("Tuesday"); 
+        Console.WriteLine("Tuesday");
         break;
-    case 3: 
+    case 3:
         Console.WriteLine("Wednesday");
         break;
     case 4:
@@ -615,7 +615,7 @@ while (dowhile < 20)
 
 
 
-int[] toplam =  { 50, 2, 3, 4, 5, 60 };
+int[] toplam = { 50, 2, 3, 4, 5, 60 };
 
 foreach (var t in toplam)
 {
@@ -635,7 +635,7 @@ initial:
 Console.WriteLine("enter you age");
 var agee = int.Parse(Console.ReadLine());
 
-if (agee < 18) 
+if (agee < 18)
 {
     Console.WriteLine("only 18+");
     goto initial;
@@ -652,7 +652,7 @@ if (agee < 18)
 
 
 
-display(multiplication(2,6));
+display(multiplication(2, 6));
 
 static void display(int res)
 {

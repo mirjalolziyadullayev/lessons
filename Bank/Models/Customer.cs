@@ -4,7 +4,7 @@ public class CustomerModel
 {
     public CustomerModel()
     {
-        
+
     }
 
     public int ID { get; set; }

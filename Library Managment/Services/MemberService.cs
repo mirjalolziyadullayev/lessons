@@ -42,13 +42,13 @@ public class MemberService : IMemberService
     public bool deleteMember(int id)
     {
         bool found = false;
-        foreach (Member member in members) 
+        foreach (Member member in members)
         {
             if (member.membershipId == id)
             {
                 foreach (Book book in BorrowedBooks)
                 {
-                    if (book.Id== id)
+                    if (book.Id == id)
                     {
                         BorrowedBooks.Remove(book);
                         break;
@@ -114,8 +114,8 @@ public class MemberService : IMemberService
     public List<Book> displayBorrowedBooksByMemberID(int memberId)
     {
         List<Book> userBooks = new List<Book>();
-        foreach(Book book in BorrowedBooks) 
-        { 
+        foreach (Book book in BorrowedBooks)
+        {
             if (book.borrowedMemberID == memberId)
             {
                 userBooks.Add(book);
@@ -123,9 +123,9 @@ public class MemberService : IMemberService
         }
         return userBooks;
     }
-    public List<Book> displayBorrowedBooks() 
+    public List<Book> displayBorrowedBooks()
     {
-        return BorrowedBooks; 
+        return BorrowedBooks;
     }
     public List<Member> getAllMembers()
     {

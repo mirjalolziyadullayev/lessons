@@ -1,7 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System.Data;
-
-namespace Haad_LC.models
+﻿namespace Haad_LC.models
 {
     public class Student
     {

@@ -104,7 +104,8 @@ public class CustomerUI
             Console.WriteLine($"Customer's Firstname is {found.FirstName}");
             Console.WriteLine($"Customer's Phone is {found.Phone}");
             Console.WriteLine($"Customer's Date of birth is {found.DateOfBirth}");
-        } else
+        }
+        else
         {
             Console.WriteLine($"Customer with ID {Did} not found!");
         }
@@ -116,7 +117,7 @@ public class CustomerUI
         List<CustomerModel> allCustomers = customerService.GetAll();
         if (customerService != null)
         {
-            foreach ( CustomerModel customer in allCustomers )
+            foreach (CustomerModel customer in allCustomers)
             {
                 Console.WriteLine("______________________________________________________");
                 Console.WriteLine($"Customer's ID is {customer.ID}");

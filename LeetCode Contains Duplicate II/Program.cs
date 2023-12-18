@@ -1,10 +1,10 @@
-﻿int[] arr = new int[10] {1,3,3,6,5,5,42,2,2,1};
+﻿int[] arr = new int[10] { 1, 3, 3, 6, 5, 5, 42, 2, 2, 1 };
 int res = 0;
 
 while (true)
 {
     int i = 0;
-    int j = arr.Length-1;
+    int j = arr.Length - 1;
 
 
     for (; i < arr.Length; i++)

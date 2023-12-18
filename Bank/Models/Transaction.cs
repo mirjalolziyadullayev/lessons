@@ -4,7 +4,7 @@ public class TransactionModel
 {
     public TransactionModel()
     {
-        
+
     }
 
     public int ID { get; set; }

@@ -1,5 +1,4 @@
-﻿using Bank.ConsoleUI.Customer;
-using Bank.Interfaces;
+﻿using Bank.Interfaces;
 using Bank.Models;
 
 namespace Bank.ConsoleUI.Card;
@@ -40,7 +39,7 @@ public class CardUI
         cardModel.ExpireDate = expireDate;
 
         var found = CardService.Update(cardModel);
-        if (found == false) 
+        if (found == false)
         {
             Console.WriteLine($"Card with ID {id} not found.");
         }
@@ -69,7 +68,7 @@ public class CardUI
             Console.WriteLine($"Card's Balance is {model.Balance}");
             Console.WriteLine("______________________________________________________\n");
         }
-        if (list == null) 
+        if (list == null)
         {
             Console.WriteLine("List of Cards is empty.");
         }

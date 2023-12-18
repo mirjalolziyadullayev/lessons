@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace aplub
+﻿namespace aplub
 {
     internal class Program
     {

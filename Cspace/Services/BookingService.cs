@@ -1,6 +1,5 @@
 ﻿using Cspace.Interfaces;
 using Cspace.Models;
-using System.Data;
 
 namespace Cspace.Services;
 
@@ -15,7 +14,7 @@ public class BookingService : IBookingInterface
         _placeService = placeService;
         _userService = userService;
     }
-    
+
     public Booking Create(Booking booking)
     {
         _userService.GetAll();
@@ -88,7 +87,7 @@ public class BookingService : IBookingInterface
         {
             throw new Exception("This booking is not found");
         }
-        
+
         return updatedBooking;
     }
 
@@ -96,20 +95,7 @@ public class BookingService : IBookingInterface
     {
 
         Booking found = null;
-        bool userFound = false;
-
-        foreach (var item in _userService.GetAll())
-        {
-            if (item.Id == userid)
-            {
-                userFound = true;
-                break;
-            }
-        }
-        if (userFound == false) 
-        {
-            throw new Exception("This User is not found");
-        }
+        User userFound = _userService.GetByID(userid);
 
         foreach (var item in _bookings)
         {
@@ -119,16 +105,13 @@ public class BookingService : IBookingInterface
                 break;
             }
         }
-        if (found == null) 
+        if (found == null)
         {
             throw new Exception("This Booking is not found");
         }
 
         Place place = _placeService.GetByID(found.PlaceID);
-        if (place == null)
-        {
-            throw new Exception("This place is not found!");
-        }
+
         return (placenumber: place.Number, startTime: found.StartTime, endTime: found.EndTime);
     }
 }
