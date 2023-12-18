@@ -58,6 +58,7 @@ internal class UserMenu
                     }
 
                     Console.WriteLine("User Created!");
+
                     break;
                 case "2":
                     int uId = 0;
@@ -94,7 +95,7 @@ internal class UserMenu
                 case "3":
                     int dId = 0;
                    
-                    Console.Write("Enter Your Firstname: ");
+                    Console.Write("Enter Your ID: ");
                     uId = int.Parse(Console.ReadLine());
                     
                     User dnewUser = new User();
@@ -134,11 +135,11 @@ internal class UserMenu
                     foreach (User item in _userService.GetAll())
                     {
                         Console.WriteLine("---------------------------------------------");
-                        Console.WriteLine("User's ID: ", item.Id);
-                        Console.WriteLine("User's FirstName: ", item.Id);
-                        Console.WriteLine("User's LastName: ", item.Id);
-                        Console.WriteLine("User's Phone: ", item.Id);
-                        Console.WriteLine("User's Email: ", item.Id);
+                        Console.WriteLine($"User's ID: {item.Id}");
+                        Console.WriteLine($"User's FirstName: {item.FirstName}");
+                        Console.WriteLine($"User's LastName: {item.LastName}");
+                        Console.WriteLine($"User's Phone: {item.Phone}");
+                        Console.WriteLine($"User's Email: {item.Email}");
                         Console.WriteLine("---------------------------------------------\n");
                     }
 
