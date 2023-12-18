@@ -24,7 +24,7 @@ public class MainMenu
         bookingService = new BookingService(placeService, userService);
 
         _userMenu = new UserMenu(userService);
-        _placeMenu = new PlaceMenu(placeService);
+        _placeMenu = new PlaceMenu(placeService, featureService);
         _featureMenu = new FeatureMenu(featureService);
         _bookingMenu = new BookingMenu(bookingService);
     }

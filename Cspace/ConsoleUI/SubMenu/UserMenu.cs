@@ -21,7 +21,7 @@ internal class UserMenu
             Console.WriteLine(" 3. Delete User");
             Console.WriteLine(" 4. Get User by ID");
             Console.WriteLine(" 5. Get all Users\n");
-            Console.WriteLine(" 6. Go Back to C-Scpace\n\n");
+            Console.WriteLine(" 6. Go Back to C-Space\n\n");
 
             Console.Write("Enter your choise: ");
             var choise = Console.ReadLine();
@@ -117,17 +117,20 @@ internal class UserMenu
                     Console.Write("Enter an ID: ");
                     uId = int.Parse(Console.ReadLine());
 
-                    User gUser = new User();
-                    gUser.Id = uId;
-
-                    var gotUser = _userService.Delete(gUser);
-                    if (gotUser == false)
+                    var gotUser = _userService.GetByID(gId);
+                    if (gotUser == null)
                     {
                         Console.WriteLine("This user is not found");
                     }
                     else
                     {
-                        Console.WriteLine("User Deleted Successfully");
+                        Console.WriteLine("---------------------------------------------");
+                        Console.WriteLine($"User's Firstname: {gotUser.FirstName}");
+                        Console.WriteLine($"User's Lastname: {gotUser.LastName}");
+                        Console.WriteLine($"User's Phone: {gotUser.Phone}");
+                        Console.WriteLine($"User's Email: {gotUser.Email}");
+                        Console.WriteLine("---------------------------------------------\n");
+
                     }
 
                     break;
