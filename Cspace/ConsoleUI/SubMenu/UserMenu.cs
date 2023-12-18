@@ -96,7 +96,7 @@ internal class UserMenu
                    
                     Console.Write("Enter Your Firstname: ");
                     uId = int.Parse(Console.ReadLine());
-
+                    
                     User dnewUser = new User();
                     dnewUser.Id = uId;
 
