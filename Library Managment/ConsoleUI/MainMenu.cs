@@ -12,8 +12,8 @@ public class MainMenu
     private readonly MemberMenu memberMenu;
     public MainMenu()
     {
+        this.bookService = new BookService();
         this.memberService = new MemberService(bookService);
-        this.bookService = new BookService(memberService);
 
         this.memberMenu = new MemberMenu(bookService, memberService);
         this.bookMenu = new BookMenu(memberService, bookService);

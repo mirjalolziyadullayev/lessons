@@ -6,11 +6,9 @@ namespace Library_Managment.Services;
 public class BookService : IBookService
 {
     List<Book> books;
-    MemberService _memberService;
-    public BookService(MemberService memberService)
+    public BookService()
     {
         books = new List<Book>();
-        _memberService = memberService;
     }
     public Book AddNewBook(Book book)
     {

@@ -151,15 +151,14 @@ public class MemberMenu
                 borrowBook:
                     int bmemberid = 0;
                     int bbookid = 0;
-                    List<Book> books = new List<Book>();
-                    books = bookService.GetBooks();
+                    List<Book> books1 = new List<Book>(); books1 = bookService.GetBooks();
 
                     Console.WriteLine("_____________ LibraryManagment System / Member Service / Borrow Book _____________");
                     Console.Write(" Enter Member's ID: ");
                     bmemberid = int.Parse(Console.ReadLine());
                     Console.WriteLine(" All Books: \n");
 
-                    foreach (Book book in books)
+                    foreach (Book book in books1)
                     {
                         if (book.isBorrowed != true)
                         {
@@ -179,7 +178,7 @@ public class MemberMenu
                     Console.Write(" Enter Book's ID: ");
                     bbookid = int.Parse(Console.ReadLine());
                     bool Borrowed = memberService.borrowBook(bbookid, bmemberid);
-                    if (Borrowed == false)
+                    if (Borrowed != false)
                     {
                         Console.WriteLine($"Success. Member with ID {bmemberid} borrowed a book with ID {bbookid}");
                     }
@@ -225,7 +224,7 @@ public class MemberMenu
                     Console.Write(" Enter Book's ID: ");
                     rbookid = int.Parse(Console.ReadLine());
                     bool returnned = memberService.returnBook(rbookid, rmemberid);
-                    if (returnned == false)
+                    if (returnned != false)
                     {
                         Console.WriteLine($"Success. Member with ID {rmemberid} returned a book with ID {rbookid}");
                     }
