@@ -1,5 +1,6 @@
 ﻿using Library_Managment.Interfaces;
 using Library_Managment.Models;
+using System.Runtime.CompilerServices;
 
 namespace Library_Managment.Services;
 
@@ -7,36 +8,36 @@ public class MemberService : IMemberService
 {
     private readonly List<Member> members;
     private readonly List<Book> BorrowedBooks;
-    private readonly BookService bookService;
+    private readonly BookService _bookService;
 
     public MemberService(BookService bookService)
     {
-        this.bookService = bookService;
+        _bookService = bookService;
         members = new List<Member>();
         BorrowedBooks = new List<Book>();
     }
     public bool borrowBook(int bookId, int memberID)
     {
         bool found = false;
-        foreach (Book book in bookService.GetBooks())
+
+        foreach (Member member in members)
         {
-            if (book.Id == bookId)
+            if (member.membershipId == memberID)
             {
-                foreach (Member member in members)
+                foreach (Book book in _bookService.GetBooks())
                 {
-                    if (member.membershipId == memberID)
+                    if (book.Id == bookId)
                     {
-                        member.borrowedBooksCount++;
-                        break;
+                        book.borrowedMemberID = memberID;
+                        book.isBorrowed = true;
+                        book.isAvailable = false;
+                        BorrowedBooks.Add(book);
+                        found = true;
                     }
+                    break;
                 }
-                found = true;
-                book.borrowedMemberID = memberID;
-                book.isBorrowed = true;
-                book.isAvailable = false;
-                BorrowedBooks.Add(book);
             }
-        }
+        }   
         return found;
     }
     public bool deleteMember(int id)
@@ -97,7 +98,7 @@ public class MemberService : IMemberService
     public bool returnBook(int bookId, int memberID)
     {
         bool found = false;
-        foreach (Book book in bookService.GetBooks())
+        foreach (Book book in _bookService.GetBooks())
         {
             if (book.Id == bookId)
             {

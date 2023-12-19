@@ -5,14 +5,16 @@ namespace Library_Managment.ConsoleUI;
 
 public class MainMenu
 {
-    private readonly BookMenu bookMenu;
-    private readonly MemberMenu memberMenu;
     public readonly BookService bookService;
     private readonly MemberService memberService;
+
+    private readonly BookMenu bookMenu;
+    private readonly MemberMenu memberMenu;
     public MainMenu()
     {
         this.memberService = new MemberService(bookService);
-        this.bookService = new BookService();
+        this.bookService = new BookService(memberService);
+
         this.memberMenu = new MemberMenu(bookService, memberService);
         this.bookMenu = new BookMenu(memberService, bookService);
     }

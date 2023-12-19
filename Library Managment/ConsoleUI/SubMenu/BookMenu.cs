@@ -6,7 +6,6 @@ namespace Library_Managment.ConsoleUI.SubMenu;
 public class BookMenu
 {
     private readonly BookService bookService;
-
     private readonly MemberService memberService;
 
     public BookMenu(MemberService memberService, BookService bookService)
@@ -14,8 +13,6 @@ public class BookMenu
         this.memberService = memberService;
         this.bookService = bookService;
     }
-
-
     public void DisplayBook()
     {
         bool loop = true;
@@ -95,11 +92,11 @@ public class BookMenu
                     ubookid = int.Parse(Console.ReadLine());
                     Console.Write(" Enter Book Name/Title: ");
                     ubookname = Console.ReadLine();
-                    Console.WriteLine(" Enter Book's Author: ");
+                    Console.Write(" Enter Book's Author: ");
                     ubookauthor = Console.ReadLine();
-                    Console.WriteLine(" Enter Book's Genre: ");
+                    Console.Write(" Enter Book's Genre: ");
                     ubookgenre = Console.ReadLine();
-                    Console.WriteLine(" Enter Book's Published year: ");
+                    Console.Write(" Enter Book's Published year: ");
                     ubookyear = Console.ReadLine();
 
                     Book ubook = new Book();
@@ -174,31 +171,31 @@ public class BookMenu
                     break;
                 case "5":
                 displaybookdetails:
-                    int dsiplaybookid = 0;
+                    int displaybookid = 0;
 
                     Console.WriteLine("_____________ LibraryManagment System / Book Service / Display Book Details By ID _____________");
                     Console.Write(" Enter Book's ID: ");
-                    dbookid = int.Parse(Console.ReadLine());
-                    var displaybook = bookService.DisplayBookDetails(dsiplaybookid);
-                    if (displaybook != null)
-                    {
-                        Console.WriteLine(
-                        $"__________________________________________________" +
-                        $" Book's ID: {displaybook.Id},\n" +
-                        $" Book's Name: {displaybook.Title},\n" +
-                        $" Book's Author: {displaybook.Author},\n" +
-                        $" Book's Genre: {displaybook.Genre},\n" +
-                        $" Book's Published Year: {displaybook.PublicationYear},\n" +
-                        $" Book's isBorrowed Status {displaybook.isBorrowed}\n" +
-                        $"__________________________________________________"
-                    );
-                    }
-                    else
+                    displaybookid = int.Parse(Console.ReadLine());
+                    Book displaybook = bookService.DisplayBookDetails(displaybookid);
+                    if (displaybook == null)
                     {
                         Console.WriteLine("Aaugh, Dumbass. Enter Valid ID again!\n");
                         Console.WriteLine("Press any key to re-enter...");
                         Console.ReadLine();
                         goto displaybookdetails;
+                    }
+                    else
+                    {
+                        Console.WriteLine(
+                       $"__________________________________________________" +
+                       $" Book's ID: {displaybook.Id},\n" +
+                       $" Book's Name: {displaybook.Title},\n" +
+                       $" Book's Author: {displaybook.Author},\n" +
+                       $" Book's Genre: {displaybook.Genre},\n" +
+                       $" Book's Published Year: {displaybook.PublicationYear},\n" +
+                       $" Book's isBorrowed Status {displaybook.isBorrowed}\n" +
+                       $"__________________________________________________"
+                       );
                     }
 
                     break;
