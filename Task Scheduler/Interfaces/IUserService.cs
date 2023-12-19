@@ -8,4 +8,5 @@ public interface IUserService
     UserModel Update(UserModel user);
     bool Delete(UserModel user);
     List<UserModel> GetAll();
+    UserModel Get(int id);
 }

@@ -32,6 +32,24 @@ public class UserService : IUserService
         return found;
     }
 
+    public UserModel Get(int id)
+    {
+        UserModel user = null;
+        foreach (var item in _users)
+        {
+            if (item.Id == id)
+            {
+                user = item;
+                break;
+            }
+        }
+        if (user == null)
+        {
+            throw new Exception("This user is not found");
+        }
+        return user;
+    }
+
     public List<UserModel> GetAll()
     {
         return _users;
