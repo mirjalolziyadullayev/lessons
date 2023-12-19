@@ -62,7 +62,8 @@ public class UserService : IUserService
         {
             if (user.Id == item.Id)
             {
-                item.Name = user.Name;
+                item.Firstname = user.Firstname;
+                item.Lastname = user.Lastname;
                 found = item;
             }
         }

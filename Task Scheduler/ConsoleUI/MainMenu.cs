@@ -26,7 +26,7 @@ internal class MainMenu
         while (loop)
         {
             Console.WriteLine("----------------------------------------");
-            Console.WriteLine("Task Scheduler App");
+            Console.WriteLine(" Task Scheduler App");
             Console.WriteLine("----------------------------------------\n");
 
             Console.WriteLine(" 1. Manage Users");
@@ -36,6 +36,7 @@ internal class MainMenu
             Console.WriteLine("----------------------");
             Console.Write(" Enter Your Choice: ");
             var choice = Console.ReadLine();
+            Console.Clear();
 
             switch (choice)
             {

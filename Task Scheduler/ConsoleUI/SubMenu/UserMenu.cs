@@ -17,7 +17,7 @@ internal class UserMenu
         while (loop)
         {
             Console.WriteLine("----------------------------------------");
-            Console.WriteLine("Task Scheduler App / User");
+            Console.WriteLine(" Task Scheduler App / User");
             Console.WriteLine("----------------------------------------\n");
 
             Console.WriteLine(" 1. Create");
@@ -29,11 +29,13 @@ internal class UserMenu
             Console.WriteLine("----------------------");
             Console.Write(" Enter Your Choice: ");
             var choice = Console.ReadLine();
-
+            Console.Clear();
             switch (choice)
             {
                 case "1":
                     CreateUser:
+                    Console.Clear();
+
                     UserModel CreateUser = new UserModel();
 
                     Console.Write("Enter your Firstname: ");
@@ -62,6 +64,8 @@ internal class UserMenu
                     break;
                 case "2":
                 UpdateUser:
+                Console.Clear();
+
                     UserModel UpdateUser = new UserModel();
                     Console.Write("Enter your ID: ");
                     UpdateUser.Id = int.Parse(Console.ReadLine());
@@ -89,6 +93,33 @@ internal class UserMenu
                     }
                     break;
                 case "3":
+                DeleteUser:
+                Console.Clear();
+
+
+                    UserModel DeleteUser = new UserModel();
+                    Console.Write("Enter your ID: ");
+                    DeleteUser.Id = int.Parse(Console.ReadLine());
+
+                    bool DeletedUser = _userService.Delete(DeleteUser);
+                    if (DeletedUser != false)
+                    {
+                        Console.WriteLine("----------------------------------------");
+                        Console.WriteLine($" User with ID {DeleteUser.Id} deleted.");
+                        Console.WriteLine("----------------------------------------\n");
+                    }
+                    else
+                    {
+                        Console.WriteLine("------------------------------------------------------");
+                        Console.WriteLine(" This user is not found. Press any key to re-enter");
+                        Console.WriteLine("------------------------------------------------------\n");
+                        Console.ReadLine();
+                        goto DeleteUser;
+                    }
+                    break;
+                case "4":
+                    Console.Clear();
+
                     List<UserModel> AllUsers = _userService.GetAll();
                     if (AllUsers != null)
                     {
@@ -103,6 +134,8 @@ internal class UserMenu
                     }
                     else
                     {
+                        Console.Clear();
+
                         Console.WriteLine("------------------------------------------------------");
                         Console.WriteLine(" User list is empty. Press any key to go back");
                         Console.WriteLine("------------------------------------------------------\n");
@@ -111,11 +144,15 @@ internal class UserMenu
                     }
                     break;
                 case "5":
+                    Console.Clear();
+
                     Console.Write("Exit...");
                     Console.ReadLine();
                     loop = false;
                     break;
                 default:
+                    Console.Clear();
+
                     Console.Write("Wrong input. Press any key to re-enter...");
                     Console.ReadLine();
                     continue;
