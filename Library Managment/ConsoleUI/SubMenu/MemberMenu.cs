@@ -239,11 +239,11 @@ public class MemberMenu
                 case "7":
                     int dbmemberid = 0;
                     List<Book> dborrowedbooks = new List<Book>();
-                    borrowedbooks = memberService.displayBorrowedBooks();
 
                     Console.WriteLine("_____________ LibraryManagment System / Member Service / Display Member's Books _____________");
                     Console.Write(" Enter Member's ID: ");
                     dbmemberid = int.Parse(Console.ReadLine());
+                    borrowedbooks = memberService.displayBorrowedBooksByMemberID(dbmemberid);
 
                     Console.WriteLine(" All Borrowed Books: \n");
 
