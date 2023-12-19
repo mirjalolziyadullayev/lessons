@@ -16,4 +16,9 @@ internal class TaskMenu
 		_userService = userService;
 		_taskService = taskService;
 	}
+
+	public void Display()
+	{
+
+	}
 }

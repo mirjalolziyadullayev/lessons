@@ -15,4 +15,8 @@ internal class UserMenu
         _userService = userService;
     }
 
+    public void Display()
+    {
+
+    }
 }
