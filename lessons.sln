@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library Managment", "Librar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cspace", "Cspace\Cspace.csproj", "{3DA6FF19-5B50-42B6-866D-4ABC428DC056}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task Scheduler", "Task Scheduler\Task Scheduler.csproj", "{8BBE7EE4-24A9-4696-8956-6DEEFA991C78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{3DA6FF19-5B50-42B6-866D-4ABC428DC056}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DA6FF19-5B50-42B6-866D-4ABC428DC056}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DA6FF19-5B50-42B6-866D-4ABC428DC056}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BBE7EE4-24A9-4696-8956-6DEEFA991C78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BBE7EE4-24A9-4696-8956-6DEEFA991C78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BBE7EE4-24A9-4696-8956-6DEEFA991C78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BBE7EE4-24A9-4696-8956-6DEEFA991C78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
