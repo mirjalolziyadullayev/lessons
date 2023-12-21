@@ -6,16 +6,16 @@ namespace Task_Scheduler.Services;
 public class TaskService : ITaskService
 {
     List<TaskModel> _tasks;
-    UserService _userService;
-    public TaskService(UserService userService)
+    ScheduleService _userService;
+    public TaskService(ScheduleService userService)
     {
         _tasks = new List<TaskModel>();
         _userService = userService;
     }
     public TaskModel Create(TaskModel task)
     {
-        UserModel user = null;
-        foreach (UserModel item in _userService.GetAll())
+        ScheduleModel user = null;
+        foreach (ScheduleModel item in _userService.GetAll())
         {
             if (item.Id == task.UserID) 
             {

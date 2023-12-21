@@ -31,9 +31,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ACMP", "ACMP\ACMP.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library Managment", "Library Managment\Library Managment.csproj", "{4B865268-B18A-4E8E-AAFA-0A76BE05C0DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cspace", "Cspace\Cspace.csproj", "{3DA6FF19-5B50-42B6-866D-4ABC428DC056}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cspace", "Cspace\Cspace.csproj", "{3DA6FF19-5B50-42B6-866D-4ABC428DC056}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task Scheduler", "Task Scheduler\Task Scheduler.csproj", "{8BBE7EE4-24A9-4696-8956-6DEEFA991C78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task Scheduler", "Task Scheduler\Task Scheduler.csproj", "{8BBE7EE4-24A9-4696-8956-6DEEFA991C78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banking System", "Banking System\Banking System.csproj", "{CB2A2122-916E-40EA-8211-904FA66EB830}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactBook", "ContactBook\ContactBook.csproj", "{F2341D13-4CA1-402B-AE1B-79B008DF8155}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +109,14 @@ Global
 		{8BBE7EE4-24A9-4696-8956-6DEEFA991C78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BBE7EE4-24A9-4696-8956-6DEEFA991C78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BBE7EE4-24A9-4696-8956-6DEEFA991C78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB2A2122-916E-40EA-8211-904FA66EB830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB2A2122-916E-40EA-8211-904FA66EB830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB2A2122-916E-40EA-8211-904FA66EB830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB2A2122-916E-40EA-8211-904FA66EB830}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2341D13-4CA1-402B-AE1B-79B008DF8155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2341D13-4CA1-402B-AE1B-79B008DF8155}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2341D13-4CA1-402B-AE1B-79B008DF8155}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2341D13-4CA1-402B-AE1B-79B008DF8155}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,22 +3,22 @@ using Task_Scheduler.Models;
 
 namespace Task_Scheduler.Services;
 
-public class UserService : IUserService
+public class ScheduleService : IScheduleService
 {
-    List<UserModel> _users;
+    List<ScheduleModel> _users;
 
-    public UserService()
+    public ScheduleService()
     {
-        _users = new List<UserModel>();
+        _users = new List<ScheduleModel>();
     }
-    public UserModel Create(UserModel user)
+    public ScheduleModel Create(ScheduleModel user)
     {
         user.Id = _users.Count + 1;
         _users.Add(user);
         return user;
     }
 
-    public bool Delete(UserModel user)
+    public bool Delete(ScheduleModel user)
     {
         bool found = false;
         foreach (var item in _users)
@@ -32,9 +32,9 @@ public class UserService : IUserService
         return found;
     }
 
-    public UserModel Get(int id)
+    public ScheduleModel Get(int id)
     {
-        UserModel user = null;
+        ScheduleModel user = null;
         foreach (var item in _users)
         {
             if (item.Id == id)
@@ -50,14 +50,14 @@ public class UserService : IUserService
         return user;
     }
 
-    public List<UserModel> GetAll()
+    public List<ScheduleModel> GetAll()
     {
         return _users;
     }
 
-    public UserModel Update(UserModel user)
+    public ScheduleModel Update(ScheduleModel user)
     {
-        UserModel found = null;
+        ScheduleModel found = null;
         foreach (var item in _users)
         {
             if (user.Id == item.Id)

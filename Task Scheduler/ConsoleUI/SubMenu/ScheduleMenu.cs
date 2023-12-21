@@ -3,12 +3,12 @@ using Task_Scheduler.Services;
 
 namespace Task_Scheduler.ConsoleUI.SubMenu;
 
-internal class UserMenu
+internal class ScheduleMenu
 {
-    private UserService _userService;
-    public UserMenu(UserService userService)
+    private ScheduleService _scheduleService;
+    public ScheduleMenu(ScheduleService scheduleService)
     {
-        _userService = userService;
+        _scheduleService = scheduleService;
     }
 
     public void Display()
@@ -33,24 +33,24 @@ internal class UserMenu
             switch (choice)
             {
                 case "1":
-                    CreateUser:
+                    CreateSchedule:
                     Console.Clear();
 
-                    UserModel CreateUser = new UserModel();
+                    ScheduleModel CreateSchedule = new ScheduleModel();
 
                     Console.Write("Enter your Firstname: ");
-                    CreateUser.Firstname = Console.ReadLine();
+                    CreateSchedule.Firstname = Console.ReadLine();
                     Console.Write("Enter your Lastname: ");
-                    CreateUser.Lastname = Console.ReadLine();
+                    CreateSchedule.Lastname = Console.ReadLine();
 
 
-                    UserModel CreatedUser = _userService.Create(CreateUser);
-                    if (CreatedUser != null)
+                    ScheduleModel CreatedSchedule = _scheduleService.Create(CreateSchedule);
+                    if (CreatedSchedule != null)
                     {
                         Console.WriteLine("----------------------------------------");
-                        Console.WriteLine($" User ID: {CreatedUser.Id}");
-                        Console.WriteLine($" User FIrstname: {CreatedUser.Firstname}");
-                        Console.WriteLine($" User Lastname: {CreatedUser.Lastname}");
+                        Console.WriteLine($" User ID: {CreatedSchedule.Id}");
+                        Console.WriteLine($" User FIrstname: {CreatedSchedule.Firstname}");
+                        Console.WriteLine($" User Lastname: {CreatedSchedule.Lastname}");
                         Console.WriteLine("----------------------------------------\n");
                     }
                     else
@@ -59,22 +59,22 @@ internal class UserMenu
                         Console.WriteLine(" This user is not found. Press any key to re-enter");
                         Console.WriteLine("------------------------------------------------------\n");
                         Console.ReadLine();
-                        goto CreateUser;
+                        goto CreateSchedule;
                     }
                     break;
                 case "2":
-                UpdateUser:
+                UpdateSchedule:
                 Console.Clear();
 
-                    UserModel UpdateUser = new UserModel();
+                    ScheduleModel UpdateSchedule = new ScheduleModel();
                     Console.Write("Enter your ID: ");
-                    UpdateUser.Id = int.Parse(Console.ReadLine());
+                    UpdateSchedule.Id = int.Parse(Console.ReadLine());
                     Console.Write("Enter your Firstname: ");
-                    UpdateUser.Firstname = Console.ReadLine();
+                    UpdateSchedule.Firstname = Console.ReadLine();
                     Console.Write("Enter your Lastname: ");
-                    UpdateUser.Lastname = Console.ReadLine();
+                    UpdateSchedule.Lastname = Console.ReadLine();
 
-                    UserModel UpdatedUser = _userService.Update(UpdateUser);
+                    ScheduleModel UpdatedUser = _scheduleService.Update(UpdateSchedule);
                     if (UpdatedUser != null)
                     {
                         Console.WriteLine("----------------------------------------");
@@ -89,7 +89,7 @@ internal class UserMenu
                         Console.WriteLine(" This user is not found. Press any key to re-enter");
                         Console.WriteLine("------------------------------------------------------\n");
                         Console.ReadLine();
-                        goto UpdateUser;
+                        goto UpdateSchedule;
                     }
                     break;
                 case "3":
@@ -97,11 +97,11 @@ internal class UserMenu
                 Console.Clear();
 
 
-                    UserModel DeleteUser = new UserModel();
+                    ScheduleModel DeleteUser = new ScheduleModel();
                     Console.Write("Enter your ID: ");
                     DeleteUser.Id = int.Parse(Console.ReadLine());
 
-                    bool DeletedUser = _userService.Delete(DeleteUser);
+                    bool DeletedUser = _scheduleService.Delete(DeleteUser);
                     if (DeletedUser != false)
                     {
                         Console.WriteLine("----------------------------------------");
@@ -120,10 +120,10 @@ internal class UserMenu
                 case "4":
                     Console.Clear();
 
-                    List<UserModel> AllUsers = _userService.GetAll();
+                    List<ScheduleModel> AllUsers = _scheduleService.GetAll();
                     if (AllUsers != null)
                     {
-                        foreach (UserModel user in AllUsers)
+                        foreach (ScheduleModel user in AllUsers)
                         {
                             Console.WriteLine("----------------------------------------");
                             Console.WriteLine($" User ID: {user.Id}");
