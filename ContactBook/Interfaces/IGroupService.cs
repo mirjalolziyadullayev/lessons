@@ -4,11 +4,11 @@ namespace ContactBook.Interfaces;
 
 public interface IGroupService
 {
-    GroupModel Create(GroupModel model);
-    GroupModel Update(GroupModel model);
-    bool Delete(int ID);
+    GroupModel Create(GroupModel group);
+    GroupModel Update(GroupModel group);
+    bool Delete(int id);
     GroupModel GetById(int id);
     List<GroupModel> GetAll();
-    (int ContactID, int GroupID) AddContact(ContactModel model);
-    List<GroupModel> GetContactsByGroup(int groupID);
+    (int ContactID, int GroupID) AddContact(ContactModel contact, int toGroupID);
+    List<ContactModel> GetContactsByGroupID(int groupID);
 }

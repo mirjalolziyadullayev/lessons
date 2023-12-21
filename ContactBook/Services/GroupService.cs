@@ -5,38 +5,112 @@ namespace ContactBook.Services;
 
 internal class GroupService : IGroupService
 {
-    public (int ContactID, int GroupID) AddContact(ContactModel model)
+    private List<GroupModel> groups;
+    private ContactService contactService;
+    public GroupService(ContactService contactService)
     {
-        throw new NotImplementedException();
+        this.contactService = contactService;
+        groups = new List<GroupModel>();
     }
 
-    public GroupModel Create(GroupModel model)
+    public (int ContactID, int GroupID) AddContact(ContactModel contact, int toGroupID)
     {
-        throw new NotImplementedException();
+        ContactModel foundContact = contactService.GetByID(contact.ID);
+        GroupModel foundGroup = GetById(toGroupID);
+
+        if (foundContact != null)
+        {
+            if (foundGroup != null)
+            {
+                foundGroup.Contacts.Add(contact);
+            }
+            else
+            {
+                throw new Exception("Group not found");
+            }
+        }
+        else
+        {
+            throw new Exception("Contact not found");
+        }
+        return (foundContact.ID, foundGroup.ID);
     }
 
+    public GroupModel Create(GroupModel group)
+    {
+        group.ID = groups.Count+1;
+        groups.Add(group);
+        return group;
+    }
     public bool Delete(int ID)
     {
-        throw new NotImplementedException();
+        bool found = false;
+        foreach (GroupModel group in groups)
+        {
+            if (group.ID == ID)
+            {
+                found = true;
+                groups.Remove(group);
+                break;
+            }
+        }
+        return found;
     }
-
     public List<GroupModel> GetAll()
     {
-        throw new NotImplementedException();
+        if (groups.Count == 0)
+        {
+            throw new Exception("Group list is empty.");
+        }
+        return groups;
     }
-
     public GroupModel GetById(int id)
     {
-        throw new NotImplementedException();
+        GroupModel found = null;
+        foreach (GroupModel group in groups)
+        {
+            if (group.ID == id)
+            {
+                found = group;
+                break;
+            }
+        }
+        return found;
     }
-
-    public List<GroupModel> GetContactsByGroup(int groupID)
+    public List<ContactModel> GetContactsByGroupID(int groupID)
     {
-        throw new NotImplementedException();
+        List<ContactModel> found = null;
+
+        foreach (GroupModel group in groups)
+        {
+            if (group.ID == groupID)
+            {
+                found = group.Contacts;
+                break;
+            }
+        }
+        if (found == null)
+        {
+            throw new Exception("Group not found");
+        }
+        return found;
     }
-
-    public GroupModel Update(GroupModel model)
+    public GroupModel Update(GroupModel group)
     {
-        throw new NotImplementedException();
+        GroupModel found = null;
+        foreach (GroupModel contact in groups)
+        {
+            if (contact.ID == group.ID)
+            {
+                contact.Name = group.Name;
+                found = contact;
+                break;
+            }
+        }
+        if (found == null )
+        {
+            throw new Exception("Group is not found");
+        }
+        return found;
     }
 }
