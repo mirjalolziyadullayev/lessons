@@ -17,7 +17,7 @@ public class TaskService : ITaskService
         ScheduleModel user = null;
         foreach (ScheduleModel item in _userService.GetAll())
         {
-            if (item.Id == task.UserID) 
+            if (item.Id == task.UserID)
             {
                 user = item;
                 break;
@@ -61,7 +61,7 @@ public class TaskService : ITaskService
 
         foreach (TaskModel item in _tasks)
         {
-            if (item.Status == true) 
+            if (item.Status == true)
             {
                 Completed.Add(item);
             }

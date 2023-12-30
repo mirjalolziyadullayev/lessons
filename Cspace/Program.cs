@@ -1,1 +1,2 @@
-﻿using Cspace.ConsoleUI; MainMenu mainMenu = new MainMenu(); mainMenu.Display();
+﻿using Cspace.ConsoleUI;
+MainMenu mainMenu = new MainMenu(); mainMenu.Display();

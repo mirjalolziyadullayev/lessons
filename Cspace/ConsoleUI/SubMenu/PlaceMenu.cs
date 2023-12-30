@@ -1,5 +1,4 @@
-﻿using Cspace.Interfaces;
-using Cspace.Models;
+﻿using Cspace.Models;
 using Cspace.Services;
 
 namespace Cspace.ConsoleUI.SubMenu;
@@ -141,7 +140,7 @@ internal class PlaceMenu
 
                     break;
                 case "5":
-                    foreach(Place place in _placeService.GetAll())
+                    foreach (Place place in _placeService.GetAll())
                     {
                         Console.WriteLine("---------------------------------------------");
                         Console.WriteLine($"Place's Number: {place.Number}");

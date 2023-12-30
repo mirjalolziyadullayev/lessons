@@ -42,7 +42,7 @@ internal class ContactService : IContactService
         if (contacts.Count == 0)
         {
             throw new Exception("Contact list is empty");
-        } 
+        }
         return contacts;
     }
 
@@ -63,7 +63,7 @@ internal class ContactService : IContactService
     public ContactModel Update(ContactModel contact)
     {
         ContactModel found = null;
-        foreach(ContactModel contactModel in contacts)
+        foreach (ContactModel contactModel in contacts)
         {
             if (contact.ID == contactModel.ID)
             {

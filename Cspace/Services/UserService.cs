@@ -21,7 +21,7 @@ public class UserService : IUserService
                 throw new Exception("This User is already exists");
             }
         }
-        user.Id = _users.Count+1;
+        user.Id = _users.Count + 1;
         _users.Add(user);
         return user;
     }

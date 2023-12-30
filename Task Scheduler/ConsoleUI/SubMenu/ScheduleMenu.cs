@@ -33,7 +33,7 @@ internal class ScheduleMenu
             switch (choice)
             {
                 case "1":
-                    CreateSchedule:
+                CreateSchedule:
                     Console.Clear();
 
                     ScheduleModel CreateSchedule = new ScheduleModel();
@@ -64,7 +64,7 @@ internal class ScheduleMenu
                     break;
                 case "2":
                 UpdateSchedule:
-                Console.Clear();
+                    Console.Clear();
 
                     ScheduleModel UpdateSchedule = new ScheduleModel();
                     Console.Write("Enter your ID: ");
@@ -94,7 +94,7 @@ internal class ScheduleMenu
                     break;
                 case "3":
                 DeleteUser:
-                Console.Clear();
+                    Console.Clear();
 
 
                     ScheduleModel DeleteUser = new ScheduleModel();

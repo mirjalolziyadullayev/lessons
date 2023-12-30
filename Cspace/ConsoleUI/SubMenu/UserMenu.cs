@@ -94,10 +94,10 @@ internal class UserMenu
                     break;
                 case "3":
                     int dId = 0;
-                   
+
                     Console.Write("Enter Your ID: ");
                     uId = int.Parse(Console.ReadLine());
-                    
+
                     User dnewUser = new User();
                     dnewUser.Id = uId;
 
@@ -105,7 +105,8 @@ internal class UserMenu
                     if (deletedUser == false)
                     {
                         Console.WriteLine("This user is not found");
-                    } else
+                    }
+                    else
                     {
                         Console.WriteLine("User Deleted Successfully");
                     }

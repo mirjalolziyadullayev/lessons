@@ -1,5 +1,4 @@
-﻿using Cspace.Interfaces;
-using Cspace.Models;
+﻿using Cspace.Models;
 using Cspace.Services;
 
 namespace Cspace.ConsoleUI.SubMenu;

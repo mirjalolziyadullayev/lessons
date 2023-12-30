@@ -38,7 +38,7 @@ internal class GroupService : IGroupService
 
     public GroupModel Create(GroupModel group)
     {
-        group.ID = groups.Count+1;
+        group.ID = groups.Count + 1;
         groups.Add(group);
         return group;
     }
@@ -107,7 +107,7 @@ internal class GroupService : IGroupService
                 break;
             }
         }
-        if (found == null )
+        if (found == null)
         {
             throw new Exception("Group is not found");
         }
