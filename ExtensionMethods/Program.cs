@@ -10,4 +10,3 @@ user.CreateUser(UserModels);
 user.DisplayUser();
 user.UpdateUser(UserModels, "nimadir");
 user.DeleteUser(UserModels, "nimadir");
-
